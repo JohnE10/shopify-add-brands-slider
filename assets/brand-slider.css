@@ -1,0 +1,45 @@
+.brand-slider {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-slider-container {
+  overflow: hidden;
+}
+
+.brand-slide-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.brand-slide {
+  flex: 0 0 auto;
+  width: {{ section.settings.image_width }}px;
+  margin-right: 10px;
+}
+
+.brand-slide img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
