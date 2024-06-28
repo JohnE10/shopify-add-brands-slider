@@ -1,3 +1,25 @@
+{% comment %} {% if section.settings.show_brands_slider %}
+  <div
+    data-section-id="{{ section.id }}"
+    id="slick-{{ section.id }}"
+    class="slickslider brands-responsive{% if section.settings.slideshow_width == 'contained' %} container mb30 {% else %} mt-30 {% endif %}"
+    data-section-type="brands-slideshow-section"
+  >
+    {% for block in section.blocks %}
+      <div class="center brand-slide">
+        {% if block.settings.brand_link %}<a href="{{ block.settings.brand_link }}">{% endif %}
+        <img
+          src="{{ block.settings.slideshow_image | img_url: '133x' }}"
+          alt="{{ block.settings.slideshow_image.alt }}"
+          width="150px"
+          height="150px"
+        >
+        {% if block.settings.brand_link %}</a>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %} {% endcomment %}
+
 {% if section.settings.show_brands_slider %}
   <div
     data-section-id="{{ section.id }}"
