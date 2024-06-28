@@ -256,7 +256,6 @@
     {% comment %} added by JE {% endcomment %}
     {{ 'brand-slider.css' | asset_url | stylesheet_tag }}
 
-
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -284,28 +283,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-
-<script>
-  console.log('script has been added to the head');
-  console.log('script has been added to the head second time');
-
-  const fetchData = async () => {
-
-      const response = await fetch('/admin/api/2024-01/themes/165410930985/assets.json?asset[key]=config/settings_data.json');
-      if(!response.ok) {
-          console.log('problem fetching');
-          return;
-      }
-      const data = await response.text();
-
-      console.log({data});
-
-      
-  }
-
-  fetchData();
-
-</script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -378,6 +355,5 @@
 
     {% comment %} add brand-slider javacript file {% endcomment %}
     <script src="{{ 'brand-slider.js' | asset_url }}" defer="defer"></script>
-
   </body>
 </html>

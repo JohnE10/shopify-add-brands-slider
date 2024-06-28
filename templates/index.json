@@ -67,26 +67,111 @@
         "padding_bottom": 36
       }
     },
-    "brand_slider_BbhmH3": {
+    "brand_slider_qgTzDr": {
+      "type": "brand-slider",
+      "blocks": {
+        "image_block_hPkFQR": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sample-normal-wax.png"
+          }
+        },
+        "image_block_RKVGrd": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wax-special.png"
+          }
+        },
+        "image_block_F9ahUi": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gift_card.png"
+          }
+        },
+        "image_block_aNYAq6": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/snowboard_wax.png"
+          }
+        },
+        "image_block_PA4RKU": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/theme_cover_image.jpg"
+          }
+        },
+        "image_block_pL6rnw": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Main_b9e0da7f-db89-4d41-83f0-7f417b02831d.jpg"
+          }
+        },
+        "image_block_94jzYj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Main_52f8e304-92d9-4a36-82af-50df8fe31c69.jpg"
+          }
+        },
+        "image_block_pLeKHG": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Main.jpg"
+          }
+        },
+        "image_block_qNM46W": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sample-normal-wax.png"
+          }
+        },
+        "image_block_wJXNVH": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg"
+          }
+        },
+        "image_block_qnYbJf": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/snowboard_wax.png"
+          }
+        },
+        "image_block_QKWqLV": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_hPkFQR",
+        "image_block_RKVGrd",
+        "image_block_F9ahUi",
+        "image_block_aNYAq6",
+        "image_block_PA4RKU",
+        "image_block_pL6rnw",
+        "image_block_94jzYj",
+        "image_block_pLeKHG",
+        "image_block_qNM46W",
+        "image_block_wJXNVH",
+        "image_block_qnYbJf",
+        "image_block_QKWqLV"
+      ],
+      "settings": {
+        "slider_speed": 300
+      }
+    },
+    "brand_slider_HPVb7E": {
       "type": "brand-slider",
       "settings": {
-        "brand1": "shopify:\/\/shop_images\/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg",
-        "brand2": "shopify:\/\/shop_images\/sample-normal-wax.png",
-        "brand3": "shopify:\/\/shop_images\/wax-special.png",
-        "brand4": "shopify:\/\/shop_images\/gift_card.png",
-        "brand5": "shopify:\/\/shop_images\/snowboard_wax.png",
-        "brand6": "shopify:\/\/shop_images\/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg",
-        "brand7": "shopify:\/\/shop_images\/theme_cover_image.jpg",
-        "brand8": "shopify:\/\/shop_images\/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg",
-        "brand9": "shopify:\/\/shop_images\/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg",
-        "image_width": "200",
-        "image_height": "200"
+        "slider_speed": 300
       }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_slider_BbhmH3"
+    "brand_slider_qgTzDr",
+    "brand_slider_HPVb7E"
   ]
 }
