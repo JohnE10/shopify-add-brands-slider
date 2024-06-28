@@ -75,54 +75,10 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "brands_slider_pNMxcq": {
-      "type": "brands-slider",
-      "blocks": {
-        "brand_DUajyH": {
-          "type": "brand",
-          "settings": {
-            "slideshow_image": "shopify:\/\/shop_images\/sample-normal-wax.png",
-            "brand_link": ""
-          }
-        },
-        "brand_HUwXbN": {
-          "type": "brand",
-          "settings": {
-            "slideshow_image": "shopify:\/\/shop_images\/wax-special.png",
-            "brand_link": ""
-          }
-        },
-        "brand_CUMkWc": {
-          "type": "brand",
-          "settings": {
-            "slideshow_image": "shopify:\/\/shop_images\/snowboard_wax.png",
-            "brand_link": ""
-          }
-        },
-        "brand_YtRNWn": {
-          "type": "brand",
-          "settings": {
-            "slideshow_image": "shopify:\/\/shop_images\/gift_card.png",
-            "brand_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "brand_DUajyH",
-        "brand_HUwXbN",
-        "brand_CUMkWc",
-        "brand_YtRNWn"
-      ],
-      "settings": {
-        "slideshow_width": "full",
-        "show_brands_slider": true
-      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection",
-    "brands_slider_pNMxcq"
+    "featured_collection"
   ]
 }
