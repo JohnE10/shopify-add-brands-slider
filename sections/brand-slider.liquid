@@ -92,7 +92,12 @@
     const slideWidth = 150; // Each slide is 150px wide
     const autoplaySpeed = {{ section.settings.autoplay_speed }};
     let currentPosition = 0;
-    let slideIndex = 0;
+
+    // Clone the slides for seamless looping
+    const totalSlides = slides.length;
+    for (let i = 0; i < totalSlides; i++) {
+      sliderWrapper.appendChild(slides[i].cloneNode(true));
+    }
 
     // Function to move the slider
     function moveSlider() {
@@ -100,11 +105,9 @@
       sliderWrapper.style.transition = `transform ${autoplaySpeed}ms linear`;
       sliderWrapper.style.transform = `translateX(${currentPosition}px)`;
 
-      // Check if the slider has moved past one slide width
-      if (Math.abs(currentPosition) >= slideWidth * (slideIndex + 1)) {
-        slideIndex++;
-        // Reset currentPosition to start sliding from the beginning
-        currentPosition = -slideWidth * slideIndex;
+      // Check if we need to reset to the beginning
+      if (Math.abs(currentPosition) >= slideWidth * totalSlides) {
+        currentPosition = 0;
         // Disable transition temporarily to jump back to start position
         sliderWrapper.style.transition = 'none';
         sliderWrapper.style.transform = `translateX(${currentPosition}px)`;
@@ -116,13 +119,6 @@
     }
 
     // Start autoplay initially
-    function startAutoplay() {
-      setInterval(moveSlider, 10); // Adjust the interval for smoother movement
-    }
-
-    // Start autoplay if enabled
-    if ({{ section.settings.autoplay }}) {
-      startAutoplay();
-    }
+    setInterval(moveSlider, 10); // Adjust the interval for smoother movement
   });
 </script>
