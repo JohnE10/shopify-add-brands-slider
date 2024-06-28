@@ -82,24 +82,28 @@
         "brand_DUajyH": {
           "type": "brand",
           "settings": {
+            "slideshow_image": "shopify:\/\/shop_images\/sample-normal-wax.png",
             "brand_link": ""
           }
         },
         "brand_HUwXbN": {
           "type": "brand",
           "settings": {
+            "slideshow_image": "shopify:\/\/shop_images\/wax-special.png",
             "brand_link": ""
           }
         },
         "brand_CUMkWc": {
           "type": "brand",
           "settings": {
+            "slideshow_image": "shopify:\/\/shop_images\/snowboard_wax.png",
             "brand_link": ""
           }
         },
         "brand_YtRNWn": {
           "type": "brand",
           "settings": {
+            "slideshow_image": "shopify:\/\/shop_images\/gift_card.png",
             "brand_link": ""
           }
         }
