@@ -45,98 +45,98 @@
 
 
 {% schema %}
- {
-    "name": "Brands Slider",
-    "max_blocks": 20,
-    "settings": [
+  {
+      "name": "Brands Slider",
+      "max_blocks": 20,
+      "settings": [
+        {
+          "type": "select",
+          "id": "slideshow_width",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "full",
+              "label": "Full-width"
+            },
+            {
+              "value": "contained",
+              "label": "Contained"
+            }
+          ],
+          "default": "full"
+        },
       {
-        "type": "select",
-        "id": "slideshow_width",
-        "label": "Layout",
-        "options": [
-          {
-            "value": "full",
-            "label": "Full-width"
-          },
-          {
-            "value": "contained",
-            "label": "Contained"
-          }
-        ],
-        "default": "full"
-      },
-	  {
-        "type": "checkbox",
-        "id": "show_brands_slider",
-        "label": "Enable brands slider",
-		"default": true
-      },
+          "type": "checkbox",
+          "id": "show_brands_slider",
+          "label": "Enable brands slider",
+      "default": true
+        },
 
+        {
+          "type": "header",
+          "content": "Info"
+        },
+        {
+          "type": "paragraph",
+          "content": "You may upload up to 25 brands"
+        },
+      {
+          "type": "paragraph",
+          "content": "Please try to use the same pixel size for all images - I've suggested 133px by 73px but you can use whatever other size you want"
+        }
+
+  ],
+      "blocks" : [
+      {
+        "type": "brand",
+        "name": "Brand",
+        "settings": [
       {
         "type": "header",
-        "content": "Info"
+        "content": "Brand"
       },
       {
-        "type": "paragraph",
-        "content": "You may upload up to 25 brands"
+        "type": "image_picker",
+        "id": "slideshow_image",
+        "label": "Image",
+    "info": "133 x 73px png recommended"
       },
-	  {
-        "type": "paragraph",
-        "content": "Please try to use the same pixel size for all images - I've suggested 133px by 73px but you can use whatever other size you want"
+      {
+        "type": "url",
+        "id": "brand_link",
+        "label": "Link URL"
       }
-
-],
-    "blocks" : [
-     {
-       "type": "brand",
-       "name": "Brand",
-       "settings": [
-     {
-       "type": "header",
-       "content": "Brand"
-     },
-     {
-       "type": "image_picker",
-       "id": "slideshow_image",
-       "label": "Image",
-	"info": "133 x 73px png recommended"
-     },
-     {
-       "type": "url",
-       "id": "brand_link",
-       "label": "Link URL"
-     }
-  ]
-	 }
-],
- "presets": [{
-   "name": "Brand Slideshow",
-   "category": "Image",
-   "settings": {
-   },
-   "blocks": [
-     {
-       "type": "brand"
-     },
-     {
-       "type": "brand"
-     },
-     {
-       "type": "brand"
-     },
-     {
-       "type": "brand"
-     }
-   ]
- }]
-}
+    ]
+    }
+  ],
+  "presets": [{
+    "name": "Brand Slideshow",
+    "category": "Image",
+    "settings": {
+    },
+    "blocks": [
+      {
+        "type": "brand"
+      },
+      {
+        "type": "brand"
+      },
+      {
+        "type": "brand"
+      },
+      {
+        "type": "brand"
+      }
+    ]
+  }]
+  }
 {% endschema %}
 
 
 
 {% javascript %}
 
-// form a brands slider with slick
+  // form a brands slider with slick
   $('.brands-responsive').slick({
     dots: false,
     infinite: true,
@@ -176,10 +176,10 @@
 
 
 {% stylesheet %}
-.slick-slide img {
-    display: block;
-    text-align: center;
-    margin: auto;
-}
+  .slick-slide img {
+      display: block;
+      text-align: center;
+      margin: auto;
+  }
 
 {% endstylesheet %}
