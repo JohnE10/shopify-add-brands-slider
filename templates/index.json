@@ -104,7 +104,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift_card.png",
-            "alt_text": ""
+            "alt_text": "logo-image"
           }
         }
       },
