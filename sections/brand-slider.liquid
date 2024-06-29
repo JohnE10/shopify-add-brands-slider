@@ -4,13 +4,13 @@
     <div class="brand-logo-slider-track">
       {% for logo in section.settings.brand_logos %}
         <div class="brand-logo-slider-item">
-          <img src="{{ logo.url }}" alt="{{ logo.alt }}">
+          <img src="{{ logo.url }}" alt="{{ logo.alt }}" width="150px" height="150px">
         </div>
       {% endfor %}
       <!-- Duplicate logos to create the seamless loop -->
       {% for logo in section.settings.brand_logos %}
         <div class="brand-logo-slider-item">
-          <img src="{{ logo.url }}" alt="{{ logo.alt }}">
+          <img src="{{ logo.url }}" alt="{{ logo.alt }}" width="150px" height="150px">
         </div>
       {% endfor %}
     </div>
