@@ -1,35 +1,6 @@
-<!-- sections/brand-logo-slider.liquid -->
-<div class="brand-logo-slider">
-  <div class="brand-logo-slider-inner">
-    <div class="brand-logo-slider-track">
-      {% for logo in section.settings.brand_logos %}
-        <div class="brand-logo-slider-item">
-          <img src="{{ logo.url }}" alt="{{ logo.alt }}" />
-        </div>
-      {% endfor %}
-      <!-- Duplicate logos to create the seamless loop -->
-      {% for logo in section.settings.brand_logos %}
-        <div class="brand-logo-slider-item">
-          <img src="{{ logo.url }}" alt="{{ logo.alt }}" />
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
-
 {% schema %}
   {
-    "name": "Brand Slider",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "brand_logos",
-        "label": "Brand Logos",
-        "default": [],
-        "info": "Upload brand logos to display in the slider.",
-        "limit": 10
-      }
-    ]
+    "name": "Section name",
+    "settings": []
   }
-
 {% endschema %}
