@@ -1,0 +1,16 @@
+
+.logos {
+  display: flex;
+  overflow: hidden;
+  padding: 60px 0;
+  background-color: white;
+}
+
+.logos-slide {
+  white-space: nowrap:
+}
+
+.logos-slide img {
+  height: 150px;
+  margin: 0 10px;
+}
