@@ -1,40 +1,37 @@
 <div class="brand-logo-slider">
-  <div class="brand-logo-slider-track">
-    {% for block in section.blocks %}
-      <div class="brand-logo-slider-item">
-        <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text }}">
-      </div>
-    {% endfor %}
-  </div>
+  {% for block in section.blocks %}
+    <div class="brand-logo-slider-item">
+      <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text }}">
+    </div>
+  {% endfor %}
 </div>
 
 {% schema %}
-{
-  "name": "Brand Logo Slider",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "logo",
-      "name": "Logo",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Logo Image"
-        },
-        {
-          "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Logo Slider",
-      "category": "Custom"
-    }
-  ]
-}
+  {
+    "name": "Brand Logo Slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo Image"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Logo Slider",
+        "category": "Custom"
+      }
+    ]
+  }
 {% endschema %}
