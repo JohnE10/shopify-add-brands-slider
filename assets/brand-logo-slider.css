@@ -4,22 +4,14 @@
   position: relative;
 }
 
-.brand-logo-slider-inner {
-  display: flex;
-  width: 100%;
-  white-space: nowrap;
-}
-
 .brand-logo-slider-track {
   display: flex;
-  width: 100%;
   animation: scroll 20s linear infinite;
 }
 
 .brand-logo-slider-item {
   flex: 0 0 auto;
   width: 10%; /* Adjust this value based on the number of logos */
-  white-space: nowrap;
 }
 
 .brand-logo-slider-item img {
@@ -33,6 +25,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }

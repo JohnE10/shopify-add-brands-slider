@@ -1,12 +1,10 @@
 <div class="brand-logo-slider">
-  <div class="brand-logo-slider-inner">
-    <div class="brand-logo-slider-track">
-      {% for block in section.blocks %}
-        <div class="brand-logo-slider-item">
-          <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text }}">
-        </div>
-      {% endfor %}
-    </div>
+  <div class="brand-logo-slider-track">
+    {% for block in section.blocks %}
+      <div class="brand-logo-slider-item">
+        <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text }}">
+      </div>
+    {% endfor %}
   </div>
 </div>
 
