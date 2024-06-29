@@ -19,35 +19,35 @@
 </div>
 
 {% schema %}
-{
-  "name": "Brand Slider",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "logo",
-      "name": "Logo",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Logo Image"
-        },
-        {
-          "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Slider",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
+  {
+    "name": "Brand Logo Slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Logo Slider",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
 
 {% stylesheet %}
   .brand-logo-slider {
