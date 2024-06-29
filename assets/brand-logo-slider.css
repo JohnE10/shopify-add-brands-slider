@@ -1,23 +1,25 @@
-/* assets/theme.css */
 .brand-logo-slider {
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .brand-logo-slider-inner {
   display: flex;
-  width: 200%;
-  animation: scroll 20s linear infinite;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .brand-logo-slider-track {
   display: flex;
   width: 100%;
+  animation: scroll 20s linear infinite;
 }
 
 .brand-logo-slider-item {
   flex: 0 0 auto;
-  width: 10%; /* Adjust based on the number of logos */
+  width: 10%; /* Adjust this value based on the number of logos */
+  white-space: nowrap;
 }
 
 .brand-logo-slider-item img {
@@ -28,9 +30,9 @@
 
 @keyframes scroll {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }

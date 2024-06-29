@@ -1,17 +1,9 @@
-<!-- sections/brand-logo-slider.liquid -->
- {% comment %} image: {{ section.blocks[0].settings.image |  image_url }} {% endcomment %}
 <div class="brand-logo-slider">
   <div class="brand-logo-slider-inner">
     <div class="brand-logo-slider-track">
-      {% for logo in section.blocks %}
+      {% for block in section.blocks %}
         <div class="brand-logo-slider-item">
-          <img src="{{ logo.settings.image | image_url: width: '150x150' }}" alt="{{ logo.settings.alt_text }}" width="150px" height="150px">
-        </div>
-      {% endfor %}
-      <!-- Duplicate logos to create the seamless loop -->
-      {% for logo in section.blocks %}
-        <div class="brand-logo-slider-item">
-          <img src="{{ logo.settings.image | image_url: width: '150x150' }}" alt="{{ logo.settings.alt_text }}" width="150px" height="150px">
+          <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text }}">
         </div>
       {% endfor %}
     </div>
@@ -19,100 +11,32 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Brand Logo Slider",
-    "settings": [],
-    "blocks": [
-      {
-        "type": "logo",
-        "name": "Logo",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Logo Image"
-          },
-          {
-            "type": "text",
-            "id": "alt_text",
-            "label": "Alt Text"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Brand Logo Slider",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
-
-{% stylesheet %}
-  .brand-logo-slider {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .brand-logo-slider-inner {
-    display: flex;
-    width: 200%;
-    animation: scroll 20s linear infinite;
-  }
-
-  .brand-logo-slider-track {
-    display: flex;
-    width: 100%;
-  }
-
-  .brand-logo-slider-item {
-    flex: 0 0 auto;
-    width: 10%; /* Adjust based on the number of logos */
-  }
-
-  .brand-logo-slider-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
+{
+  "name": "Brand Logo Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
     }
-    100% {
-      transform: translateX(-50%);
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo Slider",
+      "category": "Custom"
     }
-  }
-{% endstylesheet %}
-
-{% javascript %}
-  <script>
-    $(document).ready(function() {
-      var $slider = $('.brand-logo-slider-inner');
-      var $track = $('.brand-logo-slider-track');
-      var totalWidth = 0;
-
-      // Calculate the total width of the track
-      $track.children().each(function() {
-        totalWidth += $(this).outerWidth(true);
-      });
-
-      // Set the width of the track to accommodate duplicate logos
-      $track.width(totalWidth);
-
-      // Function to reset animation
-      function resetAnimation() {
-        $slider.css('animation', 'none');
-        $slider[0].offsetHeight; // Trigger reflow
-        $slider.css('animation', '');
-      }
-
-      // Reset animation on hover to prevent jerky effect
-      $slider.hover(resetAnimation, function() {
-        $slider.css('animation', 'scroll 20s linear infinite');
-      });
-    });
-  </script>
-{% endjavascript %}
+  ]
+}
+{% endschema %}
