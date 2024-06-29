@@ -76,17 +76,17 @@
         "padding_bottom": 36
       }
     },
-    "brand_logo_slider_j4cEXt": {
+    "brand_logo_slider_3CWiLY": {
       "type": "brand-logo-slider",
       "blocks": {
-        "logo_FiKTJr": {
+        "logo_JWYMRe": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/sample-normal-wax.png",
             "alt_text": ""
           }
         },
-        "logo_cBbwMg": {
+        "logo_iUT4dd": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/wax-special.png",
@@ -95,8 +95,8 @@
         }
       },
       "block_order": [
-        "logo_FiKTJr",
-        "logo_cBbwMg"
+        "logo_JWYMRe",
+        "logo_iUT4dd"
       ],
       "settings": {
       }
@@ -105,6 +105,6 @@
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_j4cEXt"
+    "brand_logo_slider_3CWiLY"
   ]
 }
