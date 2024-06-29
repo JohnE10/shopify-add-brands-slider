@@ -3,11 +3,11 @@
 <div class="brand-logo-slider">
   <div class="brand-logo-slider-inner">
     <div class="brand-logo-slider-track">
-      {% for logo in section.blocks %}
+      {% comment %} {% for logo in section.blocks %}
         <div class="brand-logo-slider-item">
           <img src="{{ logo.settings.image }}" alt="{{ logo.settings.alt_text }}" width="150px" height="150px">
         </div>
-      {% endfor %}
+      {% endfor %} {% endcomment %}
       <!-- Duplicate logos to create the seamless loop -->
       {% for logo in section.blocks %}
         <div class="brand-logo-slider-item">
