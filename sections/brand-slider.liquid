@@ -11,7 +11,7 @@
       <!-- Duplicate logos to create the seamless loop -->
       {% for logo in section.blocks %}
         <div class="brand-logo-slider-item">
-          <img src="{{ logo.settings.image |  image_url: width: '150x150' }}" alt="{{ logo.settings.alt_text }}" width="150px" height="150px">
+          <img src="{{ logo.settings.image | image_url: width: '150x150' }}" alt="{{ logo.settings.alt_text }}" width="150px" height="150px">
         </div>
       {% endfor %}
     </div>
