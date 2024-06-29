@@ -1,7 +1,7 @@
 <div class="brand-logo-slider">
   {% for block in section.blocks %}
     <div class="brand-logo-slider-item">
-      {{ block.settings.image | image_url: 150 | image_tag: block.settings.alt_text }}
+      <img src="{{ block.settings.image | image_url: '150x' }}" alt="{{ block.settings.alt_text }}">
     </div>
   {% endfor %}
 </div>
