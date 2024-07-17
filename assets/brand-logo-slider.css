@@ -1,13 +1,23 @@
 
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .logos {
-  display: flex;
   overflow: hidden;
   padding: 60px 0;
   background-color: white;
+  white-space: nowrap;
 }
 
 .logos-slide {
-  white-space: nowrap:
+  display: inline-block;
+  animation: 15s slide infinite linear;
 }
 
 .logos-slide img {
