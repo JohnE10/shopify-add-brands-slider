@@ -78,6 +78,38 @@
     },
     "brand_slider_XAhzbd": {
       "type": "brand-slider",
+      "blocks": {
+        "image_block_g78eEE": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sample-normal-wax.png"
+          }
+        },
+        "image_block_hNVJmX": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wax-special.png"
+          }
+        },
+        "image_block_wyweYt": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/snowboard_wax.png"
+          }
+        },
+        "image_block_i6hegM": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gift_card.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_g78eEE",
+        "image_block_hNVJmX",
+        "image_block_wyweYt",
+        "image_block_i6hegM"
+      ],
       "settings": {
         "autoplay": true,
         "autoplay_speed": 3000
