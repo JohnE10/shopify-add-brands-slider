@@ -1,10 +1,10 @@
 {% style %}
   .parent {
     display: flex;
-    /* background-color: transparent; */
     background-color: {{ section.settings.background }};
     overflow: hidden;
     width: 100%;
+    height: {{ section.settings.height }};
   }
 
   .scrolling-div {
@@ -96,6 +96,12 @@
         "id": "background",
         "label": "Background color",
         "default": "transparent"
+      },
+      {
+        "type": "text",
+        "id": "height",
+        "label": "Slider Height",
+        "default": "200px"
       }
     ],
     "blocks": [
