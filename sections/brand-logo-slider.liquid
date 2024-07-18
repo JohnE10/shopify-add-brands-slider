@@ -10,12 +10,11 @@
     display: flex;
     overflow: hidden;
     width: 100%;
-    /* height: {{ section.settings.height }}; */
   }
 
   .scrolling-div {
     width: fit-content;
-    height: fit-content;
+    height: auto;
     background-color: transparent;
     animation: scroll 40s linear infinite;
     display: flex;
@@ -35,11 +34,7 @@
   }
 {% endstyle %}
 
-<script>
-  console.log('background color:', "{{ section.settings.background }}");
-</script>
-
-<div class="parent" style='background-color: {{ section.settings.background }}'>
+<div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}'>
   <div class="scrolling-div"></div>
 </div>
 
