@@ -1,37 +1,125 @@
-<div class="logos">
-  {% for block in section.blocks %}
-    <div class="logos-slide">
-      {{ block.settings.image | image_url: width: 150 | image_tag: alt: block.settings.alt_text }}
-    </div>
-  {% endfor %}
+{% style %}
+  .parent {
+    display: flex;
+    padding: 20px 0;
+    background-color: lightblue;
+    width: fit-content;
+  }
+
+  .scrolling-div {
+    width: fit-content;
+    height: fit-content;
+    padding-right: 20px;
+    /* make this a variable equal gap between images divided by 2 */
+    background-color: lightblue;
+    /* animation: scroll  var(--scroll-duration, 5s) linear infinite; */
+    animation: scroll 8s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+
+    }
+  }
+{% endstyle %}
+
+<div class='parent'>
+  <div id="scrolling-div1" class="scrolling-div" style='display: flex; gap: 20px;'></div>
 </div>
 
-{% schema %}
-{
-  "name": "Brand Logo Slider",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "logo",
-      "name": "Logo",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Logo Image"
-        }, {
-          "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text"
+<script>
+  // Sample array of image URLs
+  const imagesArray = [];
+</script>
+
+{% for block in section.blocks %}
+  <script>
+    // Get the image URL from Liquid and push it to the JavaScript array
+    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+    console.log('imagesArray:', imagesArray);
+  </script>
+{% endfor %}
+
+<script>
+
+    const imageGap = 10;
+    const imageWidth = 150;
+
+    const numberOfImages = imagesArray.length;
+
+    const scrollingDiv = document.getElementById('scrolling-div1');
+    const parentDiv = document.querySelector('.parent');
+
+    const sliderSpeed = 5;
+
+    function runSlider() {
+
+        const screenWidth = screen.width;
+        console.log(`screen width: ${screenWidth}px`);
+
+        const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
+
+        console.log('totalWidth:', totalWidth);
+        console.log('number of divs needed:', screenWidth / totalWidth);
+
+        const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+
+        addImages();
+
+        // Function to add images to the scrolling div
+        function addImages() {
+            console.log('addImages ran');
+            console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
+            for (i = 0; i < actualNumberOfDivsNeeded; i++) {
+                imagesArray.forEach((imageUrl, index) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.alt = `Image ${index + 1}`;
+
+                    scrollingDiv.appendChild(imgElement);
+                });
+            }
+            const clone = scrollingDiv.cloneNode(true);
+            parentDiv.appendChild(clone);
         }
-      ]
     }
-  ],
-  "presets": [
-    {
-      "name": "Brand Logo Slider",
-      "category": "Custom"
-    }
-  ]
-}
+
+    // Initial call to set the viewport width on page load
+    runSlider();
+
+</script>
+
+{% schema %}
+  {
+    "name": "Brand Logo Slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo Image"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Logo Slider",
+        "category": "Custom"
+      }
+    ]
+  }
 {% endschema %}
