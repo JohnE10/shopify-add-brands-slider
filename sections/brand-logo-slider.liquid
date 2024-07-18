@@ -1,7 +1,7 @@
 {% style %}
   .parent {
     display: flex;
-    background-color: lightblue;
+    background-color: transparent;
     width: fit-content;
   }
 
@@ -9,7 +9,8 @@
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    animation: scroll 8s linear infinite;
+    animation: scroll 10s linear infinite;
+    display: flex;
   }
 
   @keyframes scroll {
@@ -25,7 +26,7 @@
 {% endstyle %}
 
 <div class='parent'>
-  <div class="scrolling-div" style='display: flex;'></div>
+  <div class="scrolling-div"></div>
 </div>
 
 <script>
@@ -36,33 +37,27 @@
 {% for block in section.blocks %}
   <script>
     // Get the image URL from Liquid and push it to the JavaScript array
-    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+    imagesArray.push("{{ block.settings.image | image_url: width: 300 }}");
   </script>
 {% endfor %}
 
 <script>
   
-  const imageGap = 0;
   const imageWidth = 150;
   
   const numberOfImages = imagesArray.length;
   
   const scrollingDiv = document.querySelector('.scrolling-div');
   const parentDiv = document.querySelector('.parent');
+
   
-  const sliderSpeed = 5;
-  
+  // slider function
   function runSlider() {
   
     const screenWidth = screen.width;
-    console.log(`screen width: ${screenWidth}px`);
+    const totalWidth = (imageWidth) * numberOfImages;
   
-    const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
-  
-    console.log('totalWidth:', totalWidth);
-    console.log('number of divs needed:', screenWidth / totalWidth);
-  
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 2;
   
     addImages();
   
@@ -79,6 +74,7 @@
           scrollingDiv.appendChild(imgElement);
         });
       }
+      // duplicate scrolling divs
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
     }
