@@ -9,7 +9,7 @@
     width: fit-content;
     height: auto;
     background-color: transparent;
-    animation: scroll 40s linear infinite;
+    /* animation: scroll 40s linear infinite; */
     display: flex;
   }
 
@@ -51,10 +51,11 @@
   const parentDiv = document.querySelector('.parent');
   
   // set animation speed
-  const newAnimation = 'scroll {{ section.settings.speed }} linear infinite';
-  // scrollingDiv.style.animation = newAnimation;
+  const speed = {{ section.settings.speed }};
+  const newAnimation = `scroll ${speed}s linear infinite`;
+  scrollingDiv.style.animation = newAnimation;
 
-  console.log('newAnimation:' newAnimation);
+  console.log('newAnimation:', newAnimation);
 
   console.log('speed:', '{{ section.settings.speed }}');
   
