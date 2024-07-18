@@ -50,6 +50,10 @@
   const scrollingDiv = document.querySelector('.scrolling-div');
   const parentDiv = document.querySelector('.parent');
   
+  // set animation speed
+  const newAnimation = 'scroll {{ section.settings.speed }} linear infinite';
+  scrollingDiv.style.animation = newAnimation;
+  
   // slider function
   function runSlider() {
   
@@ -105,6 +109,14 @@
         "max": 100,
         "step": 10,
         "unit": "px",
+        "default": 0
+      }, {
+        "type": "range",
+        "id": "speed",
+        "label": "Slider Speed",
+        "min": 0,
+        "max": 100,
+        "step": 10,
         "default": 0
       }
 
