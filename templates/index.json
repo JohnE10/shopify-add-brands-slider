@@ -94,7 +94,7 @@
         "logo_hKy7TF": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/adidas-logo_300x200_14c3e277-79cb-4962-b652-d48b7fc8a0f1.png",
+            "image": "shopify:\/\/shop_images\/adobe-logo_300x200_45a99177-8ab2-4315-8f03-0800895cd509.png",
             "alt_text": ""
           }
         },
@@ -105,10 +105,52 @@
             "alt_text": ""
           }
         },
+        "logo_DwMpgD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "alt_text": ""
+          }
+        },
         "logo_cdtVzd": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/audi-logo_300x200_a30e6239-b739-4234-9e27-e12b9e305f45.png",
+            "alt_text": ""
+          }
+        },
+        "logo_j7Gg7G": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "alt_text": ""
+          }
+        },
+        "logo_EzW8t6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
+            "alt_text": ""
+          }
+        },
+        "logo_nEEweX": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
+            "alt_text": ""
+          }
+        },
+        "logo_XH99Kj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
+            "alt_text": ""
+          }
+        },
+        "logo_ibnyqz": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
             "alt_text": ""
           }
         }
@@ -119,7 +161,13 @@
         "logo_8MHRxd",
         "logo_hKy7TF",
         "logo_VkGed3",
-        "logo_cdtVzd"
+        "logo_DwMpgD",
+        "logo_cdtVzd",
+        "logo_j7Gg7G",
+        "logo_EzW8t6",
+        "logo_nEEweX",
+        "logo_XH99Kj",
+        "logo_ibnyqz"
       ],
       "settings": {
       }
