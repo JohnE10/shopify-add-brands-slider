@@ -55,17 +55,18 @@
   const newAnimation = `scroll ${speed}s linear infinite`;
   scrollingDiv.style.animation = newAnimation;
 
-  console.log('newAnimation:', newAnimation);
-
-  console.log('speed:', '{{ section.settings.speed }}');
+  // get image gap
+  const imageGap = {{ section.settings.gap }}
   
   // slider function
   function runSlider() {
-  
+
     const screenWidth = screen.width;
-    const totalWidth = (imageWidth) * numberOfImages;
-  
+    const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+
+    console.log({imageGap});
+    console.log({totalWidth});
   
     addImages();
   
