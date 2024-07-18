@@ -9,8 +9,10 @@
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    animation: scroll 10s linear infinite;
+    animation: scroll 40s linear infinite;
     display: flex;
+    gap: 40px;
+    padding: 20px;
   }
 
   @keyframes scroll {
@@ -25,7 +27,7 @@
   }
 {% endstyle %}
 
-<div class='parent'>
+<div class="parent">
   <div class="scrolling-div"></div>
 </div>
 
@@ -37,7 +39,7 @@
 {% for block in section.blocks %}
   <script>
     // Get the image URL from Liquid and push it to the JavaScript array
-    imagesArray.push("{{ block.settings.image | image_url: width: 300 }}");
+    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
   </script>
 {% endfor %}
 
@@ -57,7 +59,7 @@
     const screenWidth = screen.width;
     const totalWidth = (imageWidth) * numberOfImages;
   
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 2;
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
   
     addImages();
   
@@ -85,31 +87,31 @@
 </script>
 
 {% schema %}
-  {
-    "name": "Brand Logo Slider",
-    "settings": [],
-    "blocks": [
-      {
-        "type": "logo",
-        "name": "Logo",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Logo Image"
-          }, {
-            "type": "text",
-            "id": "alt_text",
-            "label": "Alt Text"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Brand Logo Slider",
-        "category": "Custom"
-      }
-    ]
-  }
+{
+  "name": "Brand Logo Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }, {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo Slider",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}

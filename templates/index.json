@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "image_banner": {
@@ -76,27 +67,59 @@
         "padding_bottom": 36
       }
     },
-    "brand_logo_slider_7AhV7f": {
+    "brand_logo_slider_bVJqiw": {
       "type": "brand-logo-slider",
       "blocks": {
-        "logo_m6jjVq": {
+        "logo_Em7Dje": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/sample-normal-wax.png",
+            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
             "alt_text": ""
           }
         },
-        "logo_BrhbyG": {
+        "logo_XqDpE3": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/wax-special.png",
+            "image": "shopify:\/\/shop_images\/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
+            "alt_text": ""
+          }
+        },
+        "logo_8MHRxd": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/lg-logo_300x200_fcb122c4-2057-4b28-908c-a1e1f1579904.png",
+            "alt_text": ""
+          }
+        },
+        "logo_hKy7TF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/adidas-logo_300x200_14c3e277-79cb-4962-b652-d48b7fc8a0f1.png",
+            "alt_text": ""
+          }
+        },
+        "logo_VkGed3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nike-logo_300x200_83c60f4c-6c07-4aac-b9c2-efa1b11375e1.png",
+            "alt_text": ""
+          }
+        },
+        "logo_cdtVzd": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/audi-logo_300x200_a30e6239-b739-4234-9e27-e12b9e305f45.png",
             "alt_text": ""
           }
         }
       },
       "block_order": [
-        "logo_m6jjVq",
-        "logo_BrhbyG"
+        "logo_Em7Dje",
+        "logo_XqDpE3",
+        "logo_8MHRxd",
+        "logo_hKy7TF",
+        "logo_VkGed3",
+        "logo_cdtVzd"
       ],
       "settings": {
       }
@@ -105,6 +128,6 @@
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_7AhV7f"
+    "brand_logo_slider_bVJqiw"
   ]
 }
