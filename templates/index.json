@@ -182,7 +182,7 @@
         "background": "rgba(0,0,0,0)",
         "height": 100,
         "gap": 50,
-        "speed": 0
+        "speed": 10
       }
     }
   },
