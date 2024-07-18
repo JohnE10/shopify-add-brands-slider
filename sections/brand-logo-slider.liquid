@@ -1,5 +1,4 @@
 <style>
-
   .parent {
     display: flex;
     overflow: hidden;
@@ -29,7 +28,7 @@
 </style>
 
 <div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}px;'>
-  <div class="scrolling-div"></div>
+  <div class="scrolling-div" style='gap: {{ section.settings.gap }}px; padding: {{ section.settings.gap | divided_by: 2 }}px'></div>
 </div>
 
 <script>
@@ -95,13 +94,17 @@
         "id": "background",
         "label": "Background",
         "default": "transparent"
-      },
-      {
+      }, {
         "type": "text",
         "id": "height",
         "label": "Slider Height",
         "default": "200"
+      }, {
+        "type": "text",
+        "id": "gap",
+        "label": "Gap Between Images"
       }
+
     ],
     "blocks": [
       {
