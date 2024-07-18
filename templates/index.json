@@ -180,7 +180,8 @@
       ],
       "settings": {
         "background": "rgba(0,0,0,0)",
-        "gap": 0
+        "height": 100,
+        "gap": 50
       }
     }
   },
