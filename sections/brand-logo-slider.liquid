@@ -1,7 +1,8 @@
 {% style %}
   .parent {
     display: flex;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: {{ section.settings.background }};
     width: fit-content;
     overflow: hidden;
     width: 100%;
@@ -40,8 +41,8 @@
 
 {% for block in section.blocks %}
   <script>
-    // Get the image URL from Liquid and push it to the JavaScript array
-    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+      // Get the image URL from Liquid and push it to the JavaScript array
+      imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
   </script>
 {% endfor %}
 
@@ -88,31 +89,38 @@
 </script>
 
 {% schema %}
-{
-  "name": "Brand Logo Slider",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "logo",
-      "name": "Logo",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Logo Image"
-        }, {
-          "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Logo Slider",
-      "category": "Custom"
-    }
-  ]
-}
+  {
+    "name": "Brand Logo Slider",
+    "settings": [
+      {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background",
+        "default": "transparent"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo Image"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Logo Slider",
+        "category": "Custom"
+      }
+    ]
+  }
 {% endschema %}
