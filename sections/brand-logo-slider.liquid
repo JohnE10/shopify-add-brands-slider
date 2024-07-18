@@ -1,10 +1,11 @@
 {% style %}
   .parent {
     display: flex;
-    background-color: {{ section.settings.background }};
+    background-color: "{{ section.settings.background }}";
+    /* background-color: --slider-backgroun-color; */
     overflow: hidden;
     width: 100%;
-    height: {{ section.settings.height }};
+    /* height: {{ section.settings.height }}; */
   }
 
   .scrolling-div {
@@ -28,6 +29,10 @@
     }
   }
 {% endstyle %}
+
+<script>
+  console.log('background color:', "{{ section.settings.background }}");
+</script>
 
 <div class="parent">
   <div class="scrolling-div"></div>
