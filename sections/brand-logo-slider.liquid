@@ -2,17 +2,12 @@
 
   /* variables */
 
-  :root {
+  /* :root {
     --parent-background-color: "{{ section.settings.background }}"
-  }
-
-
-
-  /* styles */
+  } */
 
   .parent {
     display: flex;
-    background-color: var(--parent-background-color);
     overflow: hidden;
     width: 100%;
     /* height: {{ section.settings.height }}; */
@@ -44,7 +39,7 @@
   console.log('background color:', "{{ section.settings.background }}");
 </script>
 
-<div class="parent">
+<div class="parent" style='background-color: {{ section.settings.background }}'>
   <div class="scrolling-div"></div>
 </div>
 
