@@ -181,8 +181,8 @@
       "settings": {
         "background": "rgba(0,0,0,0)",
         "height": 100,
-        "gap": 50,
-        "speed": 10
+        "gap": 0,
+        "speed": 5
       }
     }
   },
