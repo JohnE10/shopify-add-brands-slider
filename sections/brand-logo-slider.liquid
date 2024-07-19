@@ -32,7 +32,7 @@
     }
   }
 </style>
-  <div class="parent">
+<div class="parent">
   <div class="scrolling-div"></div>
 </div>
 
@@ -45,6 +45,8 @@
   <script>
       // Get the image URL from Liquid and push it to the JavaScript array
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
+      console.log('image width:', {{ block.settings.image.width }});
+      console.log('image height:', {{ block.settings.image.height }});
   </script>
 {% endfor %}
 
