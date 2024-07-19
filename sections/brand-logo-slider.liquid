@@ -3,6 +3,7 @@
     display: flex;
     overflow: hidden;
     width: 100%;
+    align-items: center;
   }
 
   .scrolling-div {
@@ -62,9 +63,7 @@
   function runSlider() {
 
     const screenWidth = screen.width;
-    // const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
-    // const totalWidth = (imageWidth + imageGap) * numberOfImages;
-    const totalWidth = imageWidth * numberOfImages;
+    const totalWidth =  (imageWidth + 2 * imageGap) * numberOfImages;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
 
     console.log({imageGap});
