@@ -32,8 +32,6 @@
     }
   }
 </style>
-
-{% comment %} <div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}px;'> {% endcomment %}
   <div class="parent">
   <div class="scrolling-div"></div>
 </div>
@@ -119,10 +117,14 @@
         "label": "Background",
         "default": "transparent"
       }, {
-        "type": "number",
+        "type": "range",
         "id": "height",
         "label": "Slider Height",
-        "default": 100
+        "min": 50,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "default": 50
       }, {
         "type": "range",
         "id": "gap",
