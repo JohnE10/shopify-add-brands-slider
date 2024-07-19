@@ -4,6 +4,8 @@
     overflow: hidden;
     width: 100%;
     align-items: center;
+    background-color: var(--parent-background-color, transparent);
+    height: var(--parent-height, 100px);
   }
 
   .scrolling-div {
@@ -16,7 +18,7 @@
   }
 
   .scrolling-div img {
-    margin: 0 var(--image-gap, 0px);
+    margin: 0 var(--image-gap);
   }
 
   @keyframes scroll {
@@ -31,7 +33,8 @@
   }
 </style>
 
-<div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}px;'>
+{% comment %} <div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}px;'> {% endcomment %}
+  <div class="parent">
   <div class="scrolling-div"></div>
 </div>
 
@@ -58,20 +61,26 @@
   const speed = {{ section.settings.speed }};
   const animation = `scroll ${speed}s linear infinite`;
   document.documentElement.style.setProperty('--scroll-animation', animation);
-
-  // get image gap
-  const imageGap = {{ section.settings.gap }};
+  
+  // set image gap
+  const imageGap = '{{ section.settings.gap }}';
   document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
+  
+  // Set parent background color and height
+  const backgroundColor = '{{ section.settings.background }}';
+  const height = '{{ section.settings.height }}';
+  document.documentElement.style.setProperty('--parent-background-color', backgroundColor);
+  document.documentElement.style.setProperty('--parent-height', `${height}px`);
   
   // slider function
   function runSlider() {
-
+  
     const screenWidth = screen.width;
-    const totalWidth =  (imageWidth + 2 * imageGap) * numberOfImages;
+    const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
-
-    console.log({imageGap});
-    console.log({totalWidth});
+  
+    console.log({ imageGap });
+    console.log({ totalWidth });
   
     addImages();
   
