@@ -26,10 +26,7 @@
 </style>
 
 <div class="parent" style='background-color: {{ section.settings.background }}; height: {{ section.settings.height }}px;'>
-  {% comment %} <div class="scrolling-div" style='gap: {{ section.settings.gap }}px; margin: {{ section.settings.gap | divided_by: 2 }}px'> {% endcomment %}
-  <div class="scrolling-div" style='margin: 0 {{ section.settings.gap }}px'>
-
-  </div>
+  <div class="scrolling-div"></div>
 </div>
 
 <script>
@@ -66,7 +63,8 @@
 
     const screenWidth = screen.width;
     // const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
-    const totalWidth = (imageWidth + imageGap) * numberOfImages;
+    // const totalWidth = (imageWidth + imageGap) * numberOfImages;
+    const totalWidth = imageWidth * numberOfImages;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
 
     console.log({imageGap});
@@ -83,6 +81,7 @@
           const imgElement = document.createElement('img');
           imgElement.src = imageUrl;
           imgElement.alt = `Image ${index + 1}`;
+          imgElement.style.margin = `0 ${imageGap}px`;
   
           scrollingDiv.appendChild(imgElement);
         });
