@@ -8,10 +8,6 @@
     height: var(--parent-height, 100px);
   }
 
-  .parent:hover .scrolling-div{
-    animation-play-state: paused;
-  }
-
   .scrolling-div {
     width: auto;
     height: auto;
@@ -20,6 +16,16 @@
     align-items: center;
     animation: var(--scroll-animation);
   }
+
+  /* .parent:hover .scrolling-div {
+    animation-play-state: paused;
+  } */
+
+  {% if section.settings.pause_on_hover %}
+  .parent:hover .scrolling-div {
+    animation-play-state: paused;
+  }
+  {% endif %}
 
   .scrolling-div img {
     margin: 0 var(--image-gap);
@@ -156,7 +162,7 @@
         "step": 10,
         "unit": "px",
         "default": 0
-      },
+      }, 
       {
         "type": "range",
         "id": "speed",
@@ -166,6 +172,12 @@
         "unit": "s",
         "step": 5,
         "default": 0
+      }, 
+      {
+        "type": "checkbox",
+        "id": "pause_on_hover",
+        "label": "Pause Animation on Hover",
+        "default": true
       }
 
     ],
