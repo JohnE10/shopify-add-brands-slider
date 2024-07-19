@@ -11,7 +11,7 @@
   .scrolling-div {
     width: fit-content;
     /* height: auto; */
-    height: var(--parent-height, 100px);
+    height: var(--image-height, 100px);
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -46,8 +46,6 @@
   <script>
       // Get the image URL from Liquid and push it to the JavaScript array
       imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
-      console.log('image width:', {{ block.settings.image.width }});
-      console.log('image height:', {{ block.settings.image.height }});
   </script>
 {% endfor %}
 
@@ -66,6 +64,10 @@
   // set image gap
   const imageGap = '{{ section.settings.gap }}';
   document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
+  
+  // set slider image height
+  const imageHeight = '{{ section.settings.image_height }}';
+  document.documentElement.style.setProperty('--image-gap', `${imageHeight}px`);
   
   // Set parent background color and height
   const backgroundColor = '{{ section.settings.background }}';
@@ -119,7 +121,8 @@
         "id": "background",
         "label": "Background",
         "default": "transparent"
-      }, {
+      },
+      {
         "type": "range",
         "id": "parent_height",
         "label": "Slider Height (50 - 1000)",
@@ -128,7 +131,8 @@
         "step": 10,
         "unit": "px",
         "default": 50
-      }, {
+      },
+      {
         "type": "range",
         "id": "gap",
         "label": "Gap Between Images (0 - 100)",
@@ -137,7 +141,8 @@
         "step": 10,
         "unit": "px",
         "default": 0
-      }, {
+      },
+      {
         "type": "range",
         "id": "speed",
         "label": "Slider Speed (0 - 50)",
@@ -146,6 +151,15 @@
         "unit": "s",
         "step": 5,
         "default": 0
+      }, {
+        "type": "range",
+        "id": "image_height",
+        "label": "Slider Image Height (50 - 1000)",
+        "min": 50,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "default": 50
       }
 
     ],
@@ -162,15 +176,6 @@
             "type": "text",
             "id": "alt_text",
             "label": "Alt Text"
-          }, {
-            "type": "range",
-            "id": "height",
-            "label": "Slider Height (50 - 1000)",
-            "min": 50,
-            "max": 1000,
-            "step": 10,
-            "unit": "px",
-            "default": 50
           }
         ]
       }
