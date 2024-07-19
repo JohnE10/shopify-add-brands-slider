@@ -9,7 +9,8 @@
   }
 
   .scrolling-div {
-    width: fit-content;
+    /* width: fit-content; */
+    width: auto;
     /* height: auto; */
     height: var(--image-height, 100px);
     background-color: transparent;
@@ -67,7 +68,7 @@
   
   // set slider image height
   const imageHeight = '{{ section.settings.image_height }}';
-  document.documentElement.style.setProperty('--image-gap', `${imageHeight}px`);
+  document.documentElement.style.setProperty('--image-height', `${imageHeight}px`);
   
   // Set parent background color and height
   const backgroundColor = '{{ section.settings.background }}';
