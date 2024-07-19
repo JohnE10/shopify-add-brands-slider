@@ -83,96 +83,84 @@
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_XqDpE3": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_8MHRxd": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/lg-logo_300x200_fcb122c4-2057-4b28-908c-a1e1f1579904.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_hKy7TF": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/adobe-logo_300x200_45a99177-8ab2-4315-8f03-0800895cd509.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_VkGed3": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/nike-logo_300x200_83c60f4c-6c07-4aac-b9c2-efa1b11375e1.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_DwMpgD": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_cdtVzd": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/audi-logo_300x200_a30e6239-b739-4234-9e27-e12b9e305f45.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_j7Gg7G": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_EzW8t6": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_nEEweX": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_XH99Kj": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         },
         "logo_ibnyqz": {
           "type": "logo",
           "settings": {
             "image": "shopify:\/\/shop_images\/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
-            "alt_text": "",
-            "height": 50
+            "alt_text": ""
           }
         }
       },
@@ -193,6 +181,7 @@
       "settings": {
         "background": "#f2f2f2",
         "parent_height": 200,
+        "image_height": 50,
         "gap": 20,
         "speed": 30
       }
