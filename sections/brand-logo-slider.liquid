@@ -12,6 +12,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
+    animation: var(--scroll-animation);
   }
 
   .scrolling-div img {
@@ -49,16 +50,14 @@
 <script>
   
   const imageWidth = 150;
-  
   const numberOfImages = imagesArray.length;
-  
   const scrollingDiv = document.querySelector('.scrolling-div');
   const parentDiv = document.querySelector('.parent');
   
-  // set animation speed
+  // Set animation speed
   const speed = {{ section.settings.speed }};
-  const newAnimation = `scroll ${speed}s linear infinite`;
-  scrollingDiv.style.animation = newAnimation;
+  const animation = `scroll ${speed}s linear infinite`;
+  document.documentElement.style.setProperty('--scroll-animation', animation);
 
   // get image gap
   const imageGap = {{ section.settings.gap }};
