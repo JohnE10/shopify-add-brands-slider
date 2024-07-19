@@ -10,8 +10,12 @@
     width: fit-content;
     height: auto;
     background-color: transparent;
-    /* animation: scroll 40s linear infinite; */
     display: flex;
+    align-items: center;
+  }
+
+  .scrolling-div img {
+    margin: 0 var(--image-gap, 0px);
   }
 
   @keyframes scroll {
@@ -57,7 +61,8 @@
   scrollingDiv.style.animation = newAnimation;
 
   // get image gap
-  const imageGap = {{ section.settings.gap }}
+  const imageGap = {{ section.settings.gap }};
+  document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
   
   // slider function
   function runSlider() {
@@ -80,7 +85,8 @@
           const imgElement = document.createElement('img');
           imgElement.src = imageUrl;
           imgElement.alt = `Image ${index + 1}`;
-          imgElement.style.margin = `0 ${imageGap}px`;
+          // imgElement.style.margin = `0 ${imageGap}px`;
+          imgElement.classList.add('image'); // Add class for styling
   
           scrollingDiv.appendChild(imgElement);
         });
