@@ -180,7 +180,7 @@
       ],
       "settings": {
         "background": "#f2f2f2",
-        "height": 100,
+        "height": 200,
         "gap": 20,
         "speed": 30
       }
