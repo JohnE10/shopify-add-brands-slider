@@ -11,8 +11,7 @@
   .scrolling-div {
     /* width: fit-content; */
     width: auto;
-    height: 50px;
-    /* height: var(--image-height, 100px); */
+    height: auto;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -21,6 +20,8 @@
 
   .scrolling-div img {
     margin: 0 var(--image-gap);
+    height: var(--image-height, 100px);
+    width: auto;
   }
 
   @keyframes scroll {
