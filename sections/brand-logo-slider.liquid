@@ -17,6 +17,10 @@
     animation: var(--scroll-animation);
   }
 
+  /* .parent:hover .scrolling-div {
+    animation-play-state: paused;
+  } */
+
   {% if section.settings.pause_on_hover %}
   .parent:hover .scrolling-div {
     animation-play-state: paused;
@@ -33,96 +37,90 @@
     from {
       transform: translateX(0);
     }
+
     to {
       transform: translateX(-100%);
+
     }
   }
 </style>
-
-<div class="parent" id="parent-{{ section.id }}">
-  <div class="scrolling-div" id="scrolling-div-{{ section.id }}"></div>
+<div class="parent">
+  <div class="scrolling-div"></div>
 </div>
 
 <script>
-  // Check if the global images array exists
-  if (typeof globalImagesArray === 'undefined') {
-    var globalImagesArray = {};
-  }
-
-  // Initialize the images array for this section
-  globalImagesArray["{{ section.id }}"] = [];
+  // Sample array of image URLs
+  const imagesArray = [];
 </script>
 
 {% for block in section.blocks %}
   <script>
-    // Get the image URL from Liquid and push it to the section-specific array
-    globalImagesArray["{{ section.id }}"].push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
+      // Get the image URL from Liquid and push it to the JavaScript array
+      imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
   </script>
 {% endfor %}
 
 <script>
-  // Define the runSlider function if it doesn't exist
-  if (typeof runSlider === 'undefined') {
-    function runSlider(sectionId, imagesArray) {
-      const imageWidth = 150;
-
-      const scrollingDiv = document.getElementById(`scrolling-div-${sectionId}`);
-      const parentDiv = document.getElementById(`parent-${sectionId}`);
-
-      const numberOfImages = imagesArray.length;
-      const screenWidth = screen.width;
-      const totalWidth = (imageWidth + 2 * parseInt(getComputedStyle(document.documentElement).getPropertyValue('--image-gap'))) * numberOfImages;
-
-      const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
-
-      console.log({ sectionId, imageGap: getComputedStyle(document.documentElement).getPropertyValue('--image-gap'), totalWidth });
-
-      addImages();
-
-      // Function to add images to the scrolling div
-      function addImages() {
-        console.log('addImages ran for section:', sectionId);
-        console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
-        for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
-          imagesArray.forEach((imageUrl, index) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = imageUrl;
-            imgElement.alt = `Image ${index + 1}`;
-            imgElement.classList.add('image'); // Add class for styling
-
-            scrollingDiv.appendChild(imgElement);
-          });
-        }
-        // duplicate scrolling divs
-        const clone = scrollingDiv.cloneNode(true);
-        parentDiv.appendChild(clone);
+  
+  const imageWidth = 150;
+  const numberOfImages = imagesArray.length;
+  const scrollingDiv = document.querySelector('.scrolling-div');
+  const parentDiv = document.querySelector('.parent');
+  
+  // Set animation speed
+  const speed = {{ section.settings.speed }};
+  const animation = `scroll ${speed}s linear infinite`;
+  document.documentElement.style.setProperty('--scroll-animation', animation);
+  
+  // set image gap
+  const imageGap = '{{ section.settings.gap }}';
+  document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
+  
+  // set slider image height
+  const imageHeight = '{{ section.settings.image_height }}';
+  document.documentElement.style.setProperty('--image-height', `${imageHeight}px`);
+  
+  // Set parent background color and height
+  const backgroundColor = '{{ section.settings.background }}';
+  const parentHeight = '{{ section.settings.parent_height }}';
+  document.documentElement.style.setProperty('--parent-background-color', backgroundColor);
+  document.documentElement.style.setProperty('--parent-height', `${parentHeight}px`);
+  
+  // slider function
+  function runSlider() {
+  
+    const screenWidth = screen.width;
+    const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+  
+    console.log({ imageGap });
+    console.log({ totalWidth });
+  
+    addImages();
+  
+    // Function to add images to the scrolling div
+    function addImages() {
+      console.log('addImages ran');
+      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
+      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
+        imagesArray.forEach((imageUrl, index) => {
+          const imgElement = document.createElement('img');
+          imgElement.src = imageUrl;
+          imgElement.alt = `Image ${index + 1}`;
+          // imgElement.style.margin = `0 ${imageGap}px`;
+          imgElement.classList.add('image'); // Add class for styling
+  
+          scrollingDiv.appendChild(imgElement);
+        });
       }
+      // duplicate scrolling divs
+      const clone = scrollingDiv.cloneNode(true);
+      parentDiv.appendChild(clone);
     }
   }
-
-  // Run the slider function for this section
-  document.addEventListener('DOMContentLoaded', () => {
-    // Set animation speed
-    const speed = {{ section.settings.speed }};
-    const animation = `scroll ${speed}s linear infinite`;
-    document.documentElement.style.setProperty('--scroll-animation', animation);
-
-    // Set image gap
-    const imageGap = '{{ section.settings.gap }}';
-    document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
-
-    // Set slider image height
-    const imageHeight = '{{ section.settings.image_height }}';
-    document.documentElement.style.setProperty('--image-height', `${imageHeight}px`);
-
-    // Set parent background color and height
-    const backgroundColor = '{{ section.settings.background }}';
-    const parentHeight = '{{ section.settings.parent_height }}';
-    document.documentElement.style.setProperty('--parent-background-color', backgroundColor);
-    document.documentElement.style.setProperty('--parent-height', `${parentHeight}px`);
-
-    runSlider("{{ section.id }}", globalImagesArray["{{ section.id }}"]);
-  });
+  
+  // Initial call to set the viewport width on page load
+  runSlider();
 </script>
 
 {% schema %}
@@ -181,6 +179,7 @@
         "label": "Pause Slider on Hover",
         "default": true
       }
+
     ],
     "blocks": [
       {
