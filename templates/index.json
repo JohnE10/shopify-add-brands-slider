@@ -184,7 +184,8 @@
         "image_height": 100,
         "gap": 20,
         "speed": 30,
-        "pause_on_hover": true
+        "pause_on_hover": true,
+        "reverse": false
       }
     },
     "brand_logo_slider_RRwYiz": {
@@ -215,7 +216,8 @@
         "image_height": 100,
         "gap": 30,
         "speed": 30,
-        "pause_on_hover": true
+        "pause_on_hover": true,
+        "reverse": true
       }
     }
   },
