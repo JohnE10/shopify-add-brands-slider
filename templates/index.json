@@ -212,7 +212,7 @@
       "settings": {
         "background": "#334fb4",
         "parent_height": 500,
-        "image_height": 150,
+        "image_height": 400,
         "gap": 30,
         "speed": 30,
         "pause_on_hover": true
