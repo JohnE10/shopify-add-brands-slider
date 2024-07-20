@@ -210,9 +210,9 @@
         "logo_bHANkc"
       ],
       "settings": {
-        "background": "transparent",
+        "background": "rgba(0,0,0,0)",
         "parent_height": 150,
-        "image_height": 50,
+        "image_height": 150,
         "gap": 30,
         "speed": 30,
         "pause_on_hover": true
