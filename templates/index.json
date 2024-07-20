@@ -75,10 +75,67 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "brand_logo_slider_LTFmPy": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "logo_F8HhzJ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "alt_text": ""
+          }
+        },
+        "logo_8a8NYd": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "alt_text": ""
+          }
+        },
+        "logo_zfFMRC": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
+            "alt_text": ""
+          }
+        },
+        "logo_WAfCLe": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
+            "alt_text": ""
+          }
+        },
+        "logo_h3JTHC": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_F8HhzJ",
+        "logo_8a8NYd",
+        "logo_zfFMRC",
+        "logo_WAfCLe",
+        "logo_h3JTHC"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 50,
+        "image_height": 50,
+        "gap": 0,
+        "speed": 0,
+        "pause_on_hover": true,
+        "reverse": false
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "brand_logo_slider_LTFmPy"
   ]
 }
