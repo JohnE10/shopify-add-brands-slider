@@ -213,8 +213,8 @@
         "background": "transparent",
         "parent_height": 50,
         "image_height": 50,
-        "gap": 0,
-        "speed": 0,
+        "gap": 30,
+        "speed": 30,
         "pause_on_hover": true
       }
     }
