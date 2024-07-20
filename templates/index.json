@@ -123,12 +123,44 @@
         "logo_h3JTHC"
       ],
       "settings": {
-        "background": "transparent",
+        "background": "rgba(0,0,0,0)",
         "parent_height": 200,
         "image_height": 150,
         "gap": 20,
-        "speed": 0,
+        "speed": 30,
         "pause_on_hover": true,
+        "reverse": false
+      }
+    },
+    "brand_logo_slider_YwQAmC": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "logo_Prp6PX": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
+            "alt_text": ""
+          }
+        },
+        "logo_q8EjnW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_Prp6PX",
+        "logo_q8EjnW"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 200,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 30,
+        "pause_on_hover": false,
         "reverse": false
       }
     }
@@ -136,6 +168,7 @@
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_LTFmPy"
+    "brand_logo_slider_LTFmPy",
+    "brand_logo_slider_YwQAmC"
   ]
 }
