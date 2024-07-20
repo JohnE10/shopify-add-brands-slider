@@ -48,34 +48,6 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
     "brand_logo_slider_LTFmPy": {
       "type": "brand-logo-slider",
       "blocks": {
@@ -131,11 +103,72 @@
         "pause_on_hover": true,
         "reverse": false
       }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "brand_logo_slider_YwQAmC": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "logo_Prp6PX": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
+            "alt_text": ""
+          }
+        },
+        "logo_q8EjnW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_Prp6PX",
+        "logo_q8EjnW"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 200,
+        "image_height": 150,
+        "gap": 20,
+        "speed": 30,
+        "pause_on_hover": true,
+        "reverse": false
+      }
     }
   },
   "order": [
     "image_banner",
+    "brand_logo_slider_LTFmPy",
     "featured_collection",
-    "brand_logo_slider_LTFmPy"
+    "brand_logo_slider_YwQAmC"
   ]
 }
