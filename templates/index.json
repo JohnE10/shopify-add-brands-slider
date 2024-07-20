@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "image_banner": {
@@ -171,11 +180,37 @@
       ],
       "settings": {
       }
+    },
+    "brand_logo_slider_QUYgTQ": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "logo_bBxgWF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "alt_text": ""
+          }
+        },
+        "logo_P446gk": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_bBxgWF",
+        "logo_P446gk"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_bVJqiw"
+    "brand_logo_slider_bVJqiw",
+    "brand_logo_slider_QUYgTQ"
   ]
 }
