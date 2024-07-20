@@ -183,7 +183,7 @@
         "parent_height": 150,
         "image_height": 100,
         "gap": 20,
-        "speed": 40,
+        "speed": 30,
         "pause_on_hover": true
       }
     }
