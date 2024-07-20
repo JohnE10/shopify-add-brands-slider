@@ -128,7 +128,7 @@
         "image_height": 150,
         "gap": 20,
         "speed": 30,
-        "pause_on_hover": true,
+        "pause_on_hover": false,
         "reverse": false
       }
     },
