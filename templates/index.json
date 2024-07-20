@@ -187,44 +187,11 @@
         "pause_on_hover": true,
         "reverse": false
       }
-    },
-    "brand_logo_slider_RRwYiz": {
-      "type": "brand-logo-slider",
-      "blocks": {
-        "logo_AQk3Fm": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
-            "alt_text": ""
-          }
-        },
-        "logo_bHANkc": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
-            "alt_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_AQk3Fm",
-        "logo_bHANkc"
-      ],
-      "settings": {
-        "background": "#334fb4",
-        "parent_height": 150,
-        "image_height": 100,
-        "gap": 30,
-        "speed": 30,
-        "pause_on_hover": true,
-        "reverse": true
-      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_bVJqiw",
-    "brand_logo_slider_RRwYiz"
+    "brand_logo_slider_bVJqiw"
   ]
 }
