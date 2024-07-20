@@ -155,13 +155,13 @@
         "logo_q8EjnW"
       ],
       "settings": {
-        "background": "rgba(0,0,0,0)",
+        "background": "#334fb4",
         "parent_height": 200,
         "image_height": 100,
         "gap": 20,
         "speed": 30,
         "pause_on_hover": true,
-        "reverse": false
+        "reverse": true
       }
     }
   },
