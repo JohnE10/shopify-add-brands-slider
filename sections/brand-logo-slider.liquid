@@ -37,6 +37,15 @@
       transform: translateX(-100%);
     }
   }
+
+  @keyframes scroll-reverse {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 </style>
 
 <div class="parent parent-{{ section.id }}">
@@ -58,7 +67,9 @@
 
     // Set section-specific CSS variables
     const speed = {{ section.settings.speed }};
-    const animation = `scroll ${speed}s linear infinite`;
+    const isReverse = {{ section.settings.reverse }};
+    const animationName = isReverse ? 'scroll-reverse' : 'scroll';
+    const animation = `${animationName} ${speed}s linear infinite`;
     parentDiv.style.setProperty('--scroll-animation', animation);
 
     // Set image gap
@@ -155,6 +166,12 @@
       "id": "pause_on_hover",
       "label": "Pause Slider on Hover",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "Run Animation in Reverse",
+      "default": false
     }
   ],
   "blocks": [
