@@ -124,9 +124,9 @@
       ],
       "settings": {
         "background": "transparent",
-        "parent_height": 50,
-        "image_height": 50,
-        "gap": 0,
+        "parent_height": 200,
+        "image_height": 150,
+        "gap": 20,
         "speed": 0,
         "pause_on_hover": true,
         "reverse": false
