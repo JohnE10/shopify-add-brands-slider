@@ -17,11 +17,9 @@
     animation: var(--scroll-animation);
   }
 
-  {% if section.settings.pause_on_hover %}
-  .parent:hover .scrolling-div {
+  .parent.pause-on-hover:hover .scrolling-div {
     animation-play-state: paused;
   }
-  {% endif %}
 
   .scrolling-div img {
     margin: 0 var(--image-gap);
@@ -86,6 +84,12 @@
     parentDiv.style.setProperty('--parent-background-color', backgroundColor);
     parentDiv.style.setProperty('--parent-height', `${parentHeight}px`);
 
+    // Add pause-on-hover class if the setting is enabled
+    const pauseOnHover = {{ section.settings.pause_on_hover }};
+    if (pauseOnHover) {
+      parentDiv.classList.add('pause-on-hover');
+    }
+
     const imageWidth = 150;
     const numberOfImages = imagesArray.length;
     const screenWidth = window.innerWidth;
@@ -129,7 +133,7 @@
       "max": 1000,
       "step": 10,
       "unit": "px",
-      "default": 200
+      "default": 50
     },
     {
       "type": "range",
@@ -139,7 +143,7 @@
       "max": 1000,
       "step": 10,
       "unit": "px",
-      "default": 150
+      "default": 50
     },
     {
       "type": "range",
@@ -149,7 +153,7 @@
       "max": 100,
       "step": 10,
       "unit": "px",
-      "default": 20
+      "default": 0
     },
     {
       "type": "range",
@@ -159,7 +163,7 @@
       "max": 50,
       "unit": "s",
       "step": 5,
-      "default": 30
+      "default": 0
     },
     {
       "type": "checkbox",
