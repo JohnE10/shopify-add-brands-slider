@@ -17,10 +17,6 @@
     animation: var(--scroll-animation);
   }
 
-  /* .parent:hover .scrolling-div {
-    animation-play-state: paused;
-  } */
-
   {% if section.settings.pause_on_hover %}
   .parent:hover .scrolling-div {
     animation-play-state: paused;
@@ -37,172 +33,153 @@
     from {
       transform: translateX(0);
     }
-
     to {
       transform: translateX(-100%);
-
     }
   }
 </style>
-<div class="parent">
-  <div class="scrolling-div"></div>
+
+<div class="parent parent-{{ section.id }}">
+  <div class="scrolling-div scrolling-div-{{ section.id }}"></div>
 </div>
 
 <script>
-  // Sample array of image URLs
-  const imagesArray = [];
-</script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionId = "{{ section.id }}";
+    const parentDiv = document.querySelector(`.parent-${sectionId}`);
+    const scrollingDiv = document.querySelector(`.scrolling-div-${sectionId}`);
 
-{% for block in section.blocks %}
-  <script>
-      // Get the image URL from Liquid and push it to the JavaScript array
+    // Initialize the images array for this section
+    const imagesArray = [];
+
+    {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
-  </script>
-{% endfor %}
+    {% endfor %}
 
-<script>
-  
-  const imageWidth = 150;
-  const numberOfImages = imagesArray.length;
-  const scrollingDiv = document.querySelector('.scrolling-div');
-  const parentDiv = document.querySelector('.parent');
-  
-  // Set animation speed
-  const speed = {{ section.settings.speed }};
-  const animation = `scroll ${speed}s linear infinite`;
-  document.documentElement.style.setProperty('--scroll-animation', animation);
-  
-  // set image gap
-  const imageGap = '{{ section.settings.gap }}';
-  document.documentElement.style.setProperty('--image-gap', `${imageGap}px`);
-  
-  // set slider image height
-  const imageHeight = '{{ section.settings.image_height }}';
-  document.documentElement.style.setProperty('--image-height', `${imageHeight}px`);
-  
-  // Set parent background color and height
-  const backgroundColor = '{{ section.settings.background }}';
-  const parentHeight = '{{ section.settings.parent_height }}';
-  document.documentElement.style.setProperty('--parent-background-color', backgroundColor);
-  document.documentElement.style.setProperty('--parent-height', `${parentHeight}px`);
-  
-  // slider function
-  function runSlider() {
-  
-    const screenWidth = screen.width;
-    const totalWidth = (imageWidth + 2 * imageGap) * numberOfImages;
+    // Set section-specific CSS variables
+    const speed = {{ section.settings.speed }};
+    const animation = `scroll ${speed}s linear infinite`;
+    parentDiv.style.setProperty('--scroll-animation', animation);
+
+    // Set image gap
+    const imageGap = '{{ section.settings.gap }}';
+    parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
+
+    // Set slider image height
+    const imageHeight = '{{ section.settings.image_height }}';
+    parentDiv.style.setProperty('--image-height', `${imageHeight}px`);
+
+    // Set parent background color and height
+    const backgroundColor = '{{ section.settings.background }}';
+    const parentHeight = '{{ section.settings.parent_height }}';
+    parentDiv.style.setProperty('--parent-background-color', backgroundColor);
+    parentDiv.style.setProperty('--parent-height', `${parentHeight}px`);
+
+    const imageWidth = 150;
+    const numberOfImages = imagesArray.length;
+    const screenWidth = window.innerWidth;
+    const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
-  
-    console.log({ imageGap });
-    console.log({ totalWidth });
-  
-    addImages();
-  
-    // Function to add images to the scrolling div
+
     function addImages() {
-      console.log('addImages ran');
-      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
-      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
+      for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
         imagesArray.forEach((imageUrl, index) => {
           const imgElement = document.createElement('img');
           imgElement.src = imageUrl;
           imgElement.alt = `Image ${index + 1}`;
-          // imgElement.style.margin = `0 ${imageGap}px`;
-          imgElement.classList.add('image'); // Add class for styling
-  
           scrollingDiv.appendChild(imgElement);
         });
       }
-      // duplicate scrolling divs
+      // Duplicate scrolling div
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
     }
-  }
-  
-  // Initial call to set the viewport width on page load
-  runSlider();
+
+    // Initial call to add images
+    addImages();
+  });
 </script>
 
 {% schema %}
-  {
-    "name": "Brand Logo Slider",
-    "settings": [
-      {
-        "type": "color",
-        "id": "background",
-        "label": "Slider Background Color",
-        "default": "transparent"
-      },
-      {
-        "type": "range",
-        "id": "parent_height",
-        "label": "Slider Background Height (50 - 1000)",
-        "min": 50,
-        "max": 1000,
-        "step": 10,
-        "unit": "px",
-        "default": 50
-      },
-      {
-        "type": "range",
-        "id": "image_height",
-        "label": "Slider Image Height (50 - 1000)",
-        "min": 50,
-        "max": 1000,
-        "step": 10,
-        "unit": "px",
-        "default": 50
-      },
-      {
-        "type": "range",
-        "id": "gap",
-        "label": "Gap Between Images (0 - 100)",
-        "min": 0,
-        "max": 100,
-        "step": 10,
-        "unit": "px",
-        "default": 0
-      }, 
-      {
-        "type": "range",
-        "id": "speed",
-        "label": "Slider Speed (0 - 50)",
-        "min": 0,
-        "max": 50,
-        "unit": "s",
-        "step": 5,
-        "default": 0
-      }, 
-      {
-        "type": "checkbox",
-        "id": "pause_on_hover",
-        "label": "Pause Slider on Hover",
-        "default": true
-      }
-
-    ],
-    "blocks": [
-      {
-        "type": "logo",
-        "name": "Logo",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Logo Image"
-          }, {
-            "type": "text",
-            "id": "alt_text",
-            "label": "Alt Text"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Brand Logo Slider",
-        "category": "Custom"
-      }
-    ]
-  }
+{
+  "name": "Brand Logo Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Slider Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "parent_height",
+      "label": "Slider Background Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Slider Image Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap Between Images (0 - 100)",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Slider Speed (0 - 50)",
+      "min": 0,
+      "max": 50,
+      "unit": "s",
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause Slider on Hover",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo Slider",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
