@@ -127,7 +127,7 @@
         "parent_height": 500,
         "image_height": 150,
         "gap": 50,
-        "speed": 0,
+        "speed": 30,
         "pause_on_hover": false,
         "reverse": false
       }
