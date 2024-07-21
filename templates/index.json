@@ -76,6 +76,38 @@
         "padding_bottom": 36
       }
     },
+    "brand_logo_slider_BC9F7f": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "logo_VyKXVp": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
+            "alt_text": ""
+          }
+        },
+        "logo_4zJ6tF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_VyKXVp",
+        "logo_4zJ6tF"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 30,
+        "speed": 20,
+        "pause_on_hover": true,
+        "reverse": true
+      }
+    },
     "brand_logo_slider_LTFmPy": {
       "type": "brand-logo-slider",
       "blocks": {
@@ -131,44 +163,12 @@
         "pause_on_hover": true,
         "reverse": true
       }
-    },
-    "brand_logo_slider_BC9F7f": {
-      "type": "brand-logo-slider",
-      "blocks": {
-        "logo_VyKXVp": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
-            "alt_text": ""
-          }
-        },
-        "logo_4zJ6tF": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
-            "alt_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_VyKXVp",
-        "logo_4zJ6tF"
-      ],
-      "settings": {
-        "background": "transparent",
-        "parent_height": 150,
-        "image_height": 100,
-        "gap": 30,
-        "speed": 20,
-        "pause_on_hover": false,
-        "reverse": false
-      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "brand_logo_slider_LTFmPy",
-    "brand_logo_slider_BC9F7f"
+    "brand_logo_slider_BC9F7f",
+    "brand_logo_slider_LTFmPy"
   ]
 }
