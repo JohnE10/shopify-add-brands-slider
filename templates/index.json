@@ -129,7 +129,7 @@
         "gap": 50,
         "speed": 30,
         "pause_on_hover": true,
-        "reverse": true
+        "reverse": false
       }
     }
   },
