@@ -126,7 +126,7 @@
         "background": "#f2f2f2",
         "parent_height": 500,
         "image_height": 150,
-        "gap": 20,
+        "gap": 50,
         "speed": 30,
         "pause_on_hover": false,
         "reverse": false
