@@ -161,7 +161,7 @@
         "gap": 30,
         "speed": 20,
         "pause_on_hover": true,
-        "reverse": true
+        "reverse": false
       }
     }
   },
