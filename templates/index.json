@@ -156,7 +156,7 @@
       ],
       "settings": {
         "background": "transparent",
-        "parent_height": 200,
+        "parent_height": 150,
         "image_height": 150,
         "gap": 30,
         "speed": 0,
