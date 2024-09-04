@@ -90,11 +90,11 @@
       parentDiv.classList.add('pause-on-hover');
     }
 
-    const imageWidth = 150;
+    const imageHeightValue = parseInt(imageHeight, 10);
     const numberOfImages = imagesArray.length;
-    const screenWidth = window.innerWidth;
-    const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+    const screenHeight = parentDiv.clientHeight;
+    const totalHeight = (imageHeightValue + parseInt(imageGap) * 2) * numberOfImages;
+    const actualNumberOfDivsNeeded = Math.ceil(screenHeight / totalHeight) + 1;
 
     function addImages() {
       for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
@@ -105,15 +105,13 @@
           scrollingDiv.appendChild(imgElement);
         });
       }
-      // Duplicate scrolling div
-      const clone = scrollingDiv.cloneNode(true);
-      parentDiv.appendChild(clone);
     }
 
     // Initial call to add images
     addImages();
   });
 </script>
+
 
 {% schema %}
 {
