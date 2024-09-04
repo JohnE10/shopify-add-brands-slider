@@ -1,7 +1,56 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "brand_logo_slider_vertical_qQh4RF": {
+      "type": "brand-logo-slider-vertical",
+      "blocks": {
+        "logo_kBGX6Y": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "alt_text": ""
+          }
+        },
+        "logo_9HjLQn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "alt_text": ""
+          }
+        },
+        "logo_zGwzg7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_kBGX6Y",
+        "logo_9HjLQn",
+        "logo_zGwzg7"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 30,
+        "pause_on_hover": true,
+        "reverse": false
+      }
+    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -21,6 +70,7 @@
     }
   },
   "order": [
+    "brand_logo_slider_vertical_qQh4RF",
     "footer"
   ]
 }
