@@ -1,92 +1,93 @@
 <style>
-  .parent {
-    display: flex;
-    background-color: transparent;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .scrolling-div {
-    width: fit-content;
-    height: fit-content;
-    background-color: transparent;
-    animation: scroll 40s linear infinite;
-    display: flex;
-  }
-
-  .scrolling-div img {
-    margin: 0 20px;
-  }
-
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
+    .parent {
+      display: flex;
+      flex-direction: column; /* Change direction to vertical */
+      background-color: transparent;
+      overflow: hidden;
+      height: 100vh; /* Set height to viewport height */
     }
 
-    to {
-      transform: translateX(-100%);
-
+    .scrolling-div {
+      width: 100%; /* Full width */
+      height: fit-content;
+      background-color: transparent;
+      animation: scroll 40s linear infinite;
+      display: flex;
+      flex-direction: column; /* Stack images vertically */
     }
-  }
-</style>
+
+    .scrolling-div img {
+      margin: 20px 0; /* Vertical margin */
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateY(0); /* Start at top */
+      }
+
+      to {
+        transform: translateY(-100%); /* Move up */
+      }
+    }
+  </style>
+
 
 <div class="parent">
   <div class="scrolling-div"></div>
 </div>
 
 <script>
-  // Sample array of image URLs
-  const imagesArray = [];
-</script>
-
-{% for block in section.blocks %}
-  <script>
-    // Get the image URL from Liquid and push it to the JavaScript array
-    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+    // Sample array of image URLs
+    const imagesArray = [];
   </script>
-{% endfor %}
 
-<script>
-  
-  const imageWidth = 150;
-  
-  const numberOfImages = imagesArray.length;
-  
-  const scrollingDiv = document.querySelector('.scrolling-div');
-  const parentDiv = document.querySelector('.parent');
-  
-  // slider function
-  function runSlider() {
-  
-    const screenWidth = screen.width;
-    const totalWidth = (imageWidth) * numberOfImages;
-  
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
-  
-    addImages();
-  
-    // Function to add images to the scrolling div
-    function addImages() {
-      console.log('addImages ran');
-      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
-      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
-        imagesArray.forEach((imageUrl, index) => {
-          const imgElement = document.createElement('img');
-          imgElement.src = imageUrl;
-          imgElement.alt = `Image ${index + 1}`;
-  
-          scrollingDiv.appendChild(imgElement);
-        });
+  {% for block in section.blocks %}
+    <script>
+      // Get the image URL from Liquid and push it to the JavaScript array
+      imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+    </script>
+  {% endfor %}
+
+  <script>
+    const imageHeight = 150; // Use image height for vertical scrolling
+    
+    const numberOfImages = imagesArray.length;
+    
+    const scrollingDiv = document.querySelector('.scrolling-div');
+    const parentDiv = document.querySelector('.parent');
+    
+    // slider function
+    function runSlider() {
+    
+      const screenHeight = window.innerHeight; // Use window.innerHeight for vertical scrolling
+      const totalHeight = imageHeight * numberOfImages;
+    
+      const actualNumberOfDivsNeeded = Math.floor(screenHeight / totalHeight) + 1;
+    
+      addImages();
+    
+      // Function to add images to the scrolling div
+      function addImages() {
+        console.log('addImages ran');
+        console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
+        for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
+          imagesArray.forEach((imageUrl, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = `Image ${index + 1}`;
+    
+            scrollingDiv.appendChild(imgElement);
+          });
+        }
+        // duplicate scrolling divs
+        const clone = scrollingDiv.cloneNode(true);
+        parentDiv.appendChild(clone);
       }
-      // duplicate scrolling divs
-      const clone = scrollingDiv.cloneNode(true);
-      parentDiv.appendChild(clone);
     }
-  }
-  
-  // Initial call to set the viewport width on page load
-  runSlider();
-</script>
+    
+    // Initial call to set the viewport height on page load
+    runSlider();
+  </script>
 
 {% schema %}
 {
