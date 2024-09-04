@@ -2,19 +2,18 @@
   .parent {
     display: flex;
     overflow: hidden;
-    /* width: 100%; */
-    width: 150px;
+    width: 200px; /* Set the width of the slider */
+    align-items: center;
+    justify-content: center; /* Center the images horizontally */
     background-color: var(--parent-background-color, transparent);
-    height: var(--parent-height, 500px); /* Set the predetermined height */
-    align-items: flex-start; /* Align items at the top for vertical scrolling */
+    height: var(--parent-height, 100px);
   }
 
   .scrolling-div {
-    width: auto;
-    height: auto;
-    background-color: transparent;
     display: flex;
-    flex-direction: column; /* Change to vertical stacking */
+    flex-direction: column; /* Ensure vertical stacking of images */
+    align-items: center;
+    background-color: transparent;
     animation: var(--scroll-animation);
   }
 
@@ -23,9 +22,9 @@
   }
 
   .scrolling-div img {
-    margin: var(--image-gap) 0; /* Adjust margin for vertical layout */
-    height: var(--image-height, 150px); /* Set a default image height */
-    width: auto;
+    margin: var(--image-gap) 0;
+    height: var(--image-height, 100px);
+    width: auto; /* Maintain aspect ratio */
   }
 
   @keyframes scroll {
