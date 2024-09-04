@@ -1,6 +1,6 @@
 <style>
     .parent {
-        width: 316px; /* Full width */
+        
         display: flex;
         flex-direction: column; /* Change direction to vertical */
         background-color: transparent;
@@ -17,8 +17,17 @@
         flex-direction: column; /* Stack images vertically */
     }
 
+    .small {
+        width: 316px;
+    }
+
+    .large {
+        width: 585px;
+    }
+
     .scrolling-div img {
         margin: 20px 0; /* Vertical margin */
+        height: auto;
     }
 
     @keyframes scroll {
@@ -32,8 +41,7 @@
     }
 </style>
 
-
-<div class="parent">
+<div class="parent large">
   <div class="scrolling-div"></div>
 </div>
 
