@@ -1,0 +1,120 @@
+<style>
+  .parent {
+    display: flex;
+    background-color: transparent;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .scrolling-div {
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    animation: scroll 40s linear infinite;
+    display: flex;
+  }
+
+  .scrolling-div img {
+    margin: 0 20px;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+
+    }
+  }
+</style>
+
+<div class="parent">
+  <div class="scrolling-div"></div>
+</div>
+
+<script>
+  // Sample array of image URLs
+  const imagesArray = [];
+</script>
+
+{% for block in section.blocks %}
+  <script>
+    // Get the image URL from Liquid and push it to the JavaScript array
+    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+  </script>
+{% endfor %}
+
+<script>
+  
+  const imageWidth = 150;
+  
+  const numberOfImages = imagesArray.length;
+  
+  const scrollingDiv = document.querySelector('.scrolling-div');
+  const parentDiv = document.querySelector('.parent');
+  
+  // slider function
+  function runSlider() {
+  
+    const screenWidth = screen.width;
+    const totalWidth = (imageWidth) * numberOfImages;
+  
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+  
+    addImages();
+  
+    // Function to add images to the scrolling div
+    function addImages() {
+      console.log('addImages ran');
+      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
+      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
+        imagesArray.forEach((imageUrl, index) => {
+          const imgElement = document.createElement('img');
+          imgElement.src = imageUrl;
+          imgElement.alt = `Image ${index + 1}`;
+  
+          scrollingDiv.appendChild(imgElement);
+        });
+      }
+      // duplicate scrolling divs
+      const clone = scrollingDiv.cloneNode(true);
+      parentDiv.appendChild(clone);
+    }
+  }
+  
+  // Initial call to set the viewport width on page load
+  runSlider();
+</script>
+
+{% schema %}
+{
+  "name": "Brand Logo Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }, {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo Slider",
+      "category": "Custom"
+    }
+  ],
+  "limit": 1
+}
+{% endschema %}
