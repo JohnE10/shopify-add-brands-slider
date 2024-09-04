@@ -11,6 +11,46 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "brand_logo_slider_vertical_WVKDnj": {
+      "type": "brand-logo-slider-vertical",
+      "blocks": {
+        "logo_LxmhA9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "alt_text": ""
+          }
+        },
+        "logo_jbGCAa": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "alt_text": ""
+          }
+        },
+        "logo_FnyCkh": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_LxmhA9",
+        "logo_jbGCAa",
+        "logo_FnyCkh"
+      ],
+      "settings": {
+        "background": "transparent",
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 30,
+        "pause_on_hover": true,
+        "reverse": false
+      }
+    },
     "brand_logo_slider_vertical_qQh4RF": {
       "type": "brand-logo-slider-vertical",
       "blocks": {
@@ -70,6 +110,7 @@
     }
   },
   "order": [
+    "brand_logo_slider_vertical_WVKDnj",
     "brand_logo_slider_vertical_qQh4RF",
     "footer"
   ]
