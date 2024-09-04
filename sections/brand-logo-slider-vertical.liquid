@@ -54,6 +54,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const sectionId = "{{ section.id }}";
     const parentDivs = document.querySelectorAll(`.parent-${sectionId}`);
+    
     const imageSets = [
       [
         "https://cdn.shopify.com/s/files/1/0684/3639/4200/files/3_a35dff70-c4f6-454b-abf8-0888b2308693.png?v=1725345107",
@@ -96,45 +97,50 @@
       imagesArray.forEach(imageUrl => {
         const imgElement = document.createElement('img');
         imgElement.src = imageUrl;
+        imgElement.alt = 'Slider Image'; // Ensure each image has an alt attribute
         scrollingDiv.appendChild(imgElement);
       });
     }
 
     parentDivs.forEach((parentDiv, index) => {
       const scrollingDiv = parentDiv.querySelector('.scrolling-div');
-      const imagesArray = imageSets[index];
-      
-      // Set section-specific CSS variables
-      const speed = {{ section.settings.speed }};
-      const isReverse = {{ section.settings.reverse }};
-      const animationName = isReverse ? 'scroll-reverse' : 'scroll';
-      const animation = `${animationName} ${speed}s linear infinite`;
-      parentDiv.style.setProperty('--scroll-animation', animation);
+      if (index < imageSets.length) {
+        const imagesArray = imageSets[index];
+        
+        // Set section-specific CSS variables
+        const speed = {{ section.settings.speed }};
+        const isReverse = {{ section.settings.reverse }};
+        const animationName = isReverse ? 'scroll-reverse' : 'scroll';
+        const animation = `${animationName} ${speed}s linear infinite`;
+        parentDiv.style.setProperty('--scroll-animation', animation);
 
-      // Set image gap
-      const imageGap = '{{ section.settings.gap }}';
-      parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
+        // Set image gap
+        const imageGap = '{{ section.settings.gap }}';
+        parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
 
-      // Set slider image height
-      const imageHeight = '{{ section.settings.image_height }}';
-      parentDiv.style.setProperty('--image-height', `${imageHeight}px`);
+        // Set slider image height
+        const imageHeight = '{{ section.settings.image_height }}';
+        parentDiv.style.setProperty('--image-height', `${imageHeight}px`);
 
-      // Set parent background color and height
-      const backgroundColor = '{{ section.settings.background }}';
-      const parentHeight = '{{ section.settings.parent_height }}';
-      parentDiv.style.setProperty('--parent-background-color', backgroundColor);
-      parentDiv.style.setProperty('--parent-height', `${parentHeight}px`);
+        // Set parent background color and height
+        const backgroundColor = '{{ section.settings.background }}';
+        const parentHeight = '{{ section.settings.parent_height }}';
+        parentDiv.style.setProperty('--parent-background-color', backgroundColor);
+        parentDiv.style.setProperty('--parent-height', `${parentHeight}px`);
 
-      // Add pause-on-hover class if the setting is enabled
-      const pauseOnHover = {{ section.settings.pause_on_hover }};
-      if (pauseOnHover) {
-        parentDiv.classList.add('pause-on-hover');
+        // Add pause-on-hover class if the setting is enabled
+        const pauseOnHover = {{ section.settings.pause_on_hover }};
+        if (pauseOnHover) {
+          parentDiv.classList.add('pause-on-hover');
+        }
+
+        // Add images to the slider
+        addImages(imagesArray, scrollingDiv);
       }
-
-      addImages(imagesArray, scrollingDiv);
     });
   });
 </script>
+
 
 
 
