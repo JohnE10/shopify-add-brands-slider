@@ -47,20 +47,26 @@
 
 <script>
     // Sample array of image URLs
-    const imagesArray = [];
-  </script>
+    const smallImagesArray = [
+        'https://cdn.shopify.com/s/files/1/0684/3639/4200/files/3_a35dff70-c4f6-454b-abf8-0888b2308693.png?v=1725345107',
+        'https://cdn.shopify.com/s/files/1/0684/3639/4200/files/1.png?v=1725345108',
+        'https://cdn.shopify.com/s/files/1/0684/3639/4200/files/2_e5baada1-88bc-481a-8aa2-591e1d93a762.png?v=1725345108',
+        'https://cdn.shopify.com/s/files/1/0684/3639/4200/files/3_a35dff70-c4f6-454b-abf8-0888b2308693.png?v=1725345107',
+        'https://cdn.shopify.com/s/files/1/0684/3639/4200/files/1.png?v=1725345108'
+    ];
+</script>
 
-  {% for block in section.blocks %}
+{% comment %} {% for block in section.blocks %}
     <script>
       // Get the image URL from Liquid and push it to the JavaScript array
-      imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
-    </script>
-  {% endfor %}
+      smallImagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
+     </script>
+{% endfor %} {% endcomment %}
 
   <script>
     const imageHeight = 150; // Use image height for vertical scrolling
     
-    const numberOfImages = imagesArray.length;
+    const numberOfImages = smallImagesArray.length;
     
     const scrollingDiv = document.querySelector('.scrolling-div');
     const parentDiv = document.querySelector('.parent');
@@ -80,7 +86,7 @@
         console.log('addImages ran');
         console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
         for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
-          imagesArray.forEach((imageUrl, index) => {
+          smallImagesArray.forEach((imageUrl, index) => {
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
             imgElement.alt = `Image ${index + 1}`;
