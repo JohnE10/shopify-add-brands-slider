@@ -1,35 +1,36 @@
 <style>
     .parent {
-      display: flex;
-      flex-direction: column; /* Change direction to vertical */
-      background-color: transparent;
-      overflow: hidden;
-      height: 1000px; /* Set height to viewport height */
+        width: 316px; /* Full width */
+        display: flex;
+        flex-direction: column; /* Change direction to vertical */
+        background-color: transparent;
+        overflow: hidden;
+        height: 1000px; /* Set height to viewport height */
     }
 
     .scrolling-div {
-      width: 316px; /* Full width */
-      height: fit-content;
-      background-color: transparent;
-      animation: scroll 40s linear infinite;
-      display: flex;
-      flex-direction: column; /* Stack images vertically */
+
+        height: fit-content;
+        background-color: transparent;
+        animation: scroll 40s linear infinite;
+        display: flex;
+        flex-direction: column; /* Stack images vertically */
     }
 
     .scrolling-div img {
-      margin: 20px 0; /* Vertical margin */
+        margin: 20px 0; /* Vertical margin */
     }
 
     @keyframes scroll {
-      from {
-        transform: translateY(0); /* Start at top */
-      }
+        from {
+            transform: translateY(0); /* Start at top */
+        }
 
-      to {
-        transform: translateY(-100%); /* Move up */
-      }
+        to {
+            transform: translateY(-100%); /* Move up */
+        }
     }
-  </style>
+</style>
 
 
 <div class="parent">
