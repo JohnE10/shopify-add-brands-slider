@@ -92,9 +92,9 @@
 
     const imageHeightValue = parseInt(imageHeight, 10);
     const numberOfImages = imagesArray.length;
-    const screenHeight = window.innerHeight;
-    const totalHeight = (imageHeightValue + 2 * parseInt(imageGap)) * numberOfImages;
-    const actualNumberOfDivsNeeded = Math.floor(screenHeight / totalHeight) + 1;
+    const screenHeight = parentDiv.clientHeight;
+    const totalHeight = (imageHeightValue + parseInt(imageGap) * 2) * numberOfImages;
+    const actualNumberOfDivsNeeded = Math.ceil(screenHeight / totalHeight) + 1;
 
     function addImages() {
       for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
@@ -105,15 +105,13 @@
           scrollingDiv.appendChild(imgElement);
         });
       }
-      // Duplicate scrolling div
-      const clone = scrollingDiv.cloneNode(true);
-      parentDiv.appendChild(clone);
     }
 
     // Initial call to add images
     addImages();
   });
 </script>
+
 
 {% schema %}
 {
