@@ -42,8 +42,8 @@
         "logo_zGwzg7"
       ],
       "settings": {
-        "background": "transparent",
-        "parent_height": 150,
+        "background": "#334fb4",
+        "parent_height": 1000,
         "image_height": 100,
         "gap": 20,
         "speed": 30,
