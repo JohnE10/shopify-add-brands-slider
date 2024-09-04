@@ -1,3 +1,55 @@
+<style>
+  .parent {
+    display: flex;
+    overflow: hidden;
+    width: 200px; /* Set the width of the slider */
+    align-items: center;
+    justify-content: center; /* Center the images horizontally */
+    background-color: var(--parent-background-color, transparent);
+    height: var(--parent-height, 100px);
+  }
+
+  .scrolling-div {
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking of images */
+    align-items: center;
+    background-color: transparent;
+    animation: var(--scroll-animation);
+  }
+
+  .parent.pause-on-hover:hover .scrolling-div {
+    animation-play-state: paused;
+  }
+
+  .scrolling-div img {
+    margin: var(--image-gap) 0;
+    height: var(--image-height, 100px);
+    width: auto; /* Maintain aspect ratio */
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateY(0); /* Start from the top */
+    }
+    to {
+      transform: translateY(-100%); /* Move upwards */
+    }
+  }
+
+  @keyframes scroll-reverse {
+    from {
+      transform: translateY(-100%); /* Start from the bottom */
+    }
+    to {
+      transform: translateY(0); /* Move downwards */
+    }
+  }
+</style>
+
+<div class="parent parent-{{ section.id }}">
+  <div class="scrolling-div scrolling-div-{{ section.id }}"></div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const sectionId = "{{ section.id }}";
@@ -88,3 +140,97 @@
     });
   });
 </script>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Vertical Logo Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Slider Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "parent_height",
+      "label": "Slider Background Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Slider Image Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap Between Images (0 - 100)",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Slider Speed (0 - 50)",
+      "min": 0,
+      "max": 50,
+      "unit": "s",
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause Slider on Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "Run Animation in Reverse",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vertical Logo Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
