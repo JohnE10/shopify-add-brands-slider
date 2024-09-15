@@ -40,6 +40,7 @@
 </script>
 
 {% for block in section.blocks %}
+  section ID: {{ section.id }}
   <script>
     // Get the image URL from Liquid and push it to the JavaScript array
     imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
