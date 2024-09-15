@@ -103,16 +103,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "brands_logo_slider_8xPbmd": {
-      "type": "brands-logo-slider",
-      "settings": {
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "brands_logo_slider_8xPbmd"
+    "related-products"
   ]
 }
