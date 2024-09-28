@@ -14,7 +14,7 @@
     background-color: transparent;
     display: flex;
     /* align-items: center; */
-    animation: var(--scroll-animation);
+    /* animation: var(--scroll-animation); */
   }
 
   .parent.pause-on-hover:hover .scrolling-div {
@@ -73,7 +73,7 @@
     const isReverse = {{ section.settings.reverse }};
     const animationName = isReverse ? 'scroll-reverse' : 'scroll';
     const animation = `${animationName} ${speed}s linear infinite`;
-    parentDiv.style.setProperty('--scroll-animation', animation);
+    // parentDiv.style.setProperty('--scroll-animation', animation);
 
     // Set image gap
     const imageGap = '{{ section.settings.gap }}';
@@ -122,6 +122,7 @@
     const duplicateDiv = () => {
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
+      parentDiv.style.setProperty('--scroll-animation', animation);
     }
 
 
