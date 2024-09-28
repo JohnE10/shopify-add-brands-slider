@@ -101,7 +101,8 @@
     const numberOfImages = imagesArray.length;
     const screenWidth = window.innerWidth;
     console.log({screenWidth});
-    const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
     console.log({totalWidth});
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
     console.log({actualNumberOfDivsNeeded});
