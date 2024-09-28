@@ -69,11 +69,6 @@
       imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
-    // make the images array element count even
-    if(imagesArray.length % 2 != 0 ) {
-      imagesArray.push(imagesArray[0]);
-    }
-
     console.log('imagesArray count:', imagesArray.length);
 
     // Set section-specific CSS variables
@@ -113,7 +108,10 @@
     const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
     console.log({totalWidth});
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
-    const numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
+    let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
+    if(numberOfImagesNeeded % 2 != 0) {
+      numberOfImagesNeeded++;
+    }
     console.log({numberOfImagesNeeded});
 
     // const addImages = () => {
