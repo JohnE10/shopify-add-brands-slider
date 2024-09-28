@@ -23,7 +23,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -54,14 +54,14 @@
         "logo_VyKXVp": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
+            "image": "shopify://shop_images/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
             "alt_text": ""
           }
         },
         "logo_4zJ6tF": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
+            "image": "shopify://shop_images/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
             "alt_text": ""
           }
         }
@@ -71,12 +71,12 @@
         "logo_4zJ6tF"
       ],
       "settings": {
-        "background": "transparent",
+        "background": "rgba(0,0,0,0)",
         "parent_height": 150,
         "image_height": 100,
         "gap": 30,
         "speed": 20,
-        "pause_on_hover": false,
+        "pause_on_hover": true,
         "reverse": false
       }
     },
@@ -114,35 +114,35 @@
         "logo_F8HhzJ": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
+            "image": "shopify://shop_images/junghans-logo_300x200_0976db04-fbc6-4370-a157-22bbe6eac321.png",
             "alt_text": ""
           }
         },
         "logo_8a8NYd": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
+            "image": "shopify://shop_images/bluetooth-logo_300x200_a4188eb5-043f-4a8d-8355-3be162cfdecd.png",
             "alt_text": ""
           }
         },
         "logo_zfFMRC": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
+            "image": "shopify://shop_images/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
             "alt_text": ""
           }
         },
         "logo_WAfCLe": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
+            "image": "shopify://shop_images/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
             "alt_text": ""
           }
         },
         "logo_h3JTHC": {
           "type": "logo",
           "settings": {
-            "image": "shopify:\/\/shop_images\/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
+            "image": "shopify://shop_images/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
             "alt_text": ""
           }
         }
