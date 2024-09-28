@@ -1,3 +1,55 @@
+<style>
+  .parent {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    background-color: var(--parent-background-color, transparent);
+    height: var(--parent-height, 100px);
+  }
+
+  .scrolling-div {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    /* align-items: center; */
+    animation: var(--scroll-animation);
+  }
+
+  .parent.pause-on-hover:hover .scrolling-div {
+    animation-play-state: paused;
+  }
+
+  .scrolling-div img {
+    margin: 0 var(--image-gap);
+    height: var(--image-height, 100px);
+    width: auto;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll-reverse {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<div class="parent parent-{{ section.id }}">
+  <div class="scrolling-div scrolling-div-{{ section.id }}"></div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const sectionId = "{{ section.id }}";
@@ -7,31 +59,55 @@
     // Initialize the images array for this section
     const imagesArray = [];
     const imagesWidths = [];
-    let tempHeight = '';
+    let tempHight = '';
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
+      console.log({{ block.settings.image.aspect_ratio }});
       tempHeight = "{{ section.settings.image_height }}";
       imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
+    // Set section-specific CSS variables
     const speed = {{ section.settings.speed }};
     const isReverse = {{ section.settings.reverse }};
     const animationName = isReverse ? 'scroll-reverse' : 'scroll';
     const animation = `${animationName} ${speed}s linear infinite`;
+    parentDiv.style.setProperty('--scroll-animation', animation);
 
-    // Set section-specific CSS variables
+    // Set image gap
     const imageGap = '{{ section.settings.gap }}';
+    parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
+
+    // Set slider image height
     const imageHeight = '{{ section.settings.image_height }}';
+    parentDiv.style.setProperty('--image-height', `${imageHeight}px`);
+
+    // Set parent background color and height
     const backgroundColor = '{{ section.settings.background }}';
     const parentHeight = '{{ section.settings.parent_height }}';
-
-    parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
-    parentDiv.style.setProperty('--image-height', `${imageHeight}px`);
     parentDiv.style.setProperty('--parent-background-color', backgroundColor);
     parentDiv.style.setProperty('--parent-height', `${parentHeight}px`);
 
-    // Add images to the slider
+    // Add pause-on-hover class if the setting is enabled
+    const pauseOnHover = {{ section.settings.pause_on_hover }};
+    if (pauseOnHover) {
+      parentDiv.classList.add('pause-on-hover');
+    }
+
+    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
+    console.log({imageWidth});
+    console.log({imageGap});
+    const numberOfImages = imagesArray.length;
+    const screenWidth = window.innerWidth;
+    console.log({screenWidth});
+    // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
+    console.log({totalWidth});
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
+    console.log({actualNumberOfDivsNeeded});
+
+
     const addImages = () => {
       for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
         imagesArray.forEach((imageUrl, index) => {
@@ -41,37 +117,115 @@
           scrollingDiv.appendChild(imgElement);
         });
       }
-    };
+    }
 
     const duplicateDiv = () => {
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
-    };
+    }
 
-    const activateAnimation = () => {
-      parentDiv.style.setProperty('--scroll-animation', animation);
-    };
-
-    // Set initial values for the actual number of divs needed
-    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
-    const numberOfImages = imagesArray.length;
-    const screenWidth = window.innerWidth;
-    const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
 
     // Initial call to add images
-    addImages();
+     addImages();
 
-    // Add event listeners for user interactions
-    const eventOptions = { once: true }; // Ensure it runs only once
-    const activateOnInteraction = () => {
-      duplicateDiv();
-      activateAnimation(); // Trigger animation after interaction
-    };
+    //  // event listeners to duplicate scrolling div upon user interaction
+    document.addEventListener('click', duplicateDiv, { once: true });
+    document.addEventListener('mousemove', duplicateDiv, { once: true });
+    document.addEventListener('scroll', duplicateDiv, { once: true });
+    document.addEventListener('keydown', duplicateDiv, { once: true });
 
-    document.addEventListener('click', activateOnInteraction, eventOptions);
-    document.addEventListener('mousemove', activateOnInteraction, eventOptions);
-    document.addEventListener('scroll', activateOnInteraction, eventOptions);
-    document.addEventListener('keydown', activateOnInteraction, eventOptions);
+     console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
+
+
   });
 </script>
+
+{% schema %}
+{
+  "name": "Brands Logo Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Slider Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "parent_height",
+      "label": "Slider Background Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Slider Image Height (50 - 1000)",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap Between Images (0 - 100)",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Slider Speed (0 - 200)",
+      "min": 0,
+      "max": 200,
+      "unit": "s",
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause Slider on Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "Run Animation in Reverse",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands Logo Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
