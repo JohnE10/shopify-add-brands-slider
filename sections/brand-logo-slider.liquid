@@ -13,7 +13,7 @@
     height: auto;
     background-color: transparent;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     animation: var(--scroll-animation);
   }
 
@@ -58,9 +58,14 @@
 
     // Initialize the images array for this section
     const imagesArray = [];
+    const imagesWidths = [];
+    let tempHight = '';
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
+      console.log({{ block.settings.image.aspect_ratio }});
+      tempHeight = "{{ section.settings.image_height }}";
+      imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
     // Set section-specific CSS variables
@@ -90,7 +95,8 @@
       parentDiv.classList.add('pause-on-hover');
     }
 
-    const imageWidth = 150;
+    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length / 2;
+    console.log({imageWidth});
     const numberOfImages = imagesArray.length;
     const screenWidth = window.innerWidth;
     const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
@@ -108,10 +114,15 @@
       // Duplicate scrolling div
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
+
     }
 
     // Initial call to add images
     addImages();
+
+     console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
+
+
   });
 </script>
 
@@ -158,9 +169,9 @@
     {
       "type": "range",
       "id": "speed",
-      "label": "Slider Speed (0 - 50)",
+      "label": "Slider Speed (0 - 200)",
       "min": 0,
-      "max": 50,
+      "max": 200,
       "unit": "s",
       "step": 5,
       "default": 30
