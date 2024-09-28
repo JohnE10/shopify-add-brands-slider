@@ -14,8 +14,8 @@
     background-color: transparent;
     display: flex;
     /* align-items: center; */
-    /* animation: var(--scroll-animation); */
-    animation: none; /* Initially no animation */
+    animation: var(--scroll-animation);
+    /* animation: none; Initially no animation; */
   }
 
   .parent.pause-on-hover:hover .scrolling-div {
@@ -120,7 +120,8 @@
     }
 
     const duplicateDiv = () => {
-      scrollingDiv.style.setProperty('animation', animation);
+      // scrollingDiv.style.setProperty('animation', animation);
+      parentDiv.style.setProperty('--scroll-animation', animation);
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
     }
