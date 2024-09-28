@@ -9,6 +9,38 @@
 */
 {
   "sections": {
+    "brands_logo_slider_tfmpbU": {
+      "type": "brands-logo-slider",
+      "blocks": {
+        "logo_cijPxN": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
+            "alt_text": ""
+          }
+        },
+        "logo_gJLXiH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_cijPxN",
+        "logo_gJLXiH"
+      ],
+      "settings": {
+        "background": "rgba(0,0,0,0)",
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 10,
+        "pause_on_hover": true,
+        "reverse": true
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -46,38 +78,6 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
-      }
-    },
-    "brands_logo_slider_tfmpbU": {
-      "type": "brands-logo-slider",
-      "blocks": {
-        "logo_cijPxN": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/intel-logo_300x200_b949fbb3-6a75-4c9a-bdde-766c5ffe9920.png",
-            "alt_text": ""
-          }
-        },
-        "logo_gJLXiH": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/youtube-logo_300x200_dfa14159-943d-4355-b52c-6c23cc6d6fb5.png",
-            "alt_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_cijPxN",
-        "logo_gJLXiH"
-      ],
-      "settings": {
-        "background": "rgba(0,0,0,0)",
-        "parent_height": 150,
-        "image_height": 100,
-        "gap": 20,
-        "speed": 10,
-        "pause_on_hover": true,
-        "reverse": false
       }
     },
     "featured_collection": {
