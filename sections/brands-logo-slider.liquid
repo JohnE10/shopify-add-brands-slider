@@ -123,7 +123,11 @@
     const addImages = () => {
     
       for (let i = 0; i < numberOfImagesNeeded; i++) {
-        const imgIndex = i % imagesArray.length; // Wrap around using modulo
+        const imgIndex = (i % imagesArray.length) + 1; // Wrap around using modulo and start from index 1
+        if (imgIndex >= imagesArray.length) {
+          imgIndex = 0; // Reset to index 0 only if it wraps around the total length
+        }
+        
         const imageUrl = imagesArray[imgIndex]; // Get the image URL
         const imgElement = document.createElement('img');
         imgElement.src = imageUrl;
