@@ -64,6 +64,9 @@
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
+      if(imagesArray.length % 2 != 0 ) {
+        imagesArray.push(imagesArray[0]);
+      }
       console.log({{ block.settings.image.aspect_ratio }});
       tempHeight = "{{ section.settings.image_height }}";
       imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
