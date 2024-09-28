@@ -32,7 +32,7 @@
         "logo_gJLXiH"
       ],
       "settings": {
-        "background": "transparent",
+        "background": "rgba(0,0,0,0)",
         "parent_height": 150,
         "image_height": 100,
         "gap": 20,
@@ -110,8 +110,8 @@
     }
   },
   "order": [
-    "brands_logo_slider_tfmpbU",
     "image_banner",
+    "brands_logo_slider_tfmpbU",
     "featured_collection"
   ]
 }
