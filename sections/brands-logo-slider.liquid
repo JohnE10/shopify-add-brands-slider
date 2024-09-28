@@ -104,12 +104,36 @@
     // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
     const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
     console.log({totalWidth});
-    // const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
+    const numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + imageGap)) + 1;
     console.log({actualNumberOfDivsNeeded});
 
+    // const addImages = () => {
+    //   for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
+    //     imagesArray.forEach((imageUrl, index) => {
+    //       const imgElement = document.createElement('img');
+    //       imgElement.src = imageUrl;
+    //       imgElement.alt = `Image ${index + 1}`;
+    //       scrollingDiv.appendChild(imgElement);
+    //     });
+    //   }
+    // }
+
+    let initialImagesCount = 0;
 
     const addImages = () => {
+    
+      for (let i = 0; i < numberOfImagesNeeded; i++) {
+        const imgIndex = i % imagesArray.length; // Wrap around using modulo
+        const imageUrl = imagesArray[imgIndex]; // Get the image URL
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl;
+        imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
+        scrollingDiv.appendChild(imgElement);
+      }
+
+    }
+
       for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
         imagesArray.forEach((imageUrl, index) => {
           const imgElement = document.createElement('img');
