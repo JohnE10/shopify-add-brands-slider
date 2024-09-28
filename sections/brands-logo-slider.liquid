@@ -132,16 +132,6 @@
 
     }
 
-      for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
-        imagesArray.forEach((imageUrl, index) => {
-          const imgElement = document.createElement('img');
-          imgElement.src = imageUrl;
-          imgElement.alt = `Image ${index + 1}`;
-          scrollingDiv.appendChild(imgElement);
-        });
-      }
-    }
-
     const duplicateDiv = () => {
       // scrollingDiv.style.setProperty('animation', animation);
       parentDiv.style.setProperty('--scroll-animation', animation);
