@@ -110,8 +110,8 @@
     }
   },
   "order": [
-    "image_banner",
     "brands_logo_slider_tfmpbU",
+    "image_banner",
     "featured_collection"
   ]
 }
