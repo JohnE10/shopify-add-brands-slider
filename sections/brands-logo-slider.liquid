@@ -128,8 +128,11 @@
     // Initial call to add images
      addImages();
 
-    //  // Duplicate scrolling div
-    //  duplicateDiv();
+    //  // event listeners to duplicate scrolling div upon user interaction
+    document.addEventListener('click', duplicateDiv, { once: true });
+    document.addEventListener('mousemove', duplicateDiv, { once: true });
+    document.addEventListener('scroll', duplicateDiv, { once: true });
+    document.addEventListener('keydown', duplicateDiv, { once: true });
 
      console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
 
