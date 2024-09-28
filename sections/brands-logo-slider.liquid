@@ -108,7 +108,7 @@
     console.log({actualNumberOfDivsNeeded});
 
 
-    function addImages() {
+    const addImages = () {
       for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
         imagesArray.forEach((imageUrl, index) => {
           const imgElement = document.createElement('img');
@@ -117,14 +117,17 @@
           scrollingDiv.appendChild(imgElement);
         });
       }
-      // // Duplicate scrolling div
+    }
+
+
+
       // const clone = scrollingDiv.cloneNode(true);
       // parentDiv.appendChild(clone);
 
-    }
-
     // Initial call to add images
      addImages();
+
+     // // Duplicate scrolling div
 
      console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
 
