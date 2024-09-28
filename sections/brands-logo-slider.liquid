@@ -123,7 +123,7 @@
     const duplicateDiv = () => {
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
-      parentDiv.style.setProperty('--scroll-animation', animation);
+      scrollingDiv.style.setProperty('--scroll-animation', animation);
     }
 
 
