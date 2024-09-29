@@ -34,19 +34,33 @@
   <div class="scrolling-div"></div>
 </div>
 
-<script>
+{% comment %} <script>
   // Sample array of image URLs
   const imagesArray = [];
-</script>
+</script> {% endcomment %}
 
-{% for block in section.blocks %}
+{% comment %} {% for block in section.blocks %}
   <script>
     // Get the image URL from Liquid and push it to the JavaScript array
     imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
   </script>
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 <script>
+
+  // Initialize the images array for this section
+  const imagesArray = [];
+  const imagesWidths = [];
+  let tempHight = '';
+
+  {% for block in section.blocks %}
+    imagesArray.push("{{ block.settings.image | image_url: height: block.settings.image.height }}");
+    console.log({{ block.settings.image.aspect_ratio }});
+    tempHeight = "{{ section.settings.image_height }}";
+    imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
+  {% endfor %}
+
+  console.log('imagesArray count:', imagesArray.length);
   
   const imageWidth = 150;
   
