@@ -12,11 +12,12 @@
     background-color: transparent;
     animation: scroll 40s linear infinite;
     display: flex;
+    gap: 20px;
   }
 
-  .scrolling-div img {
+  /* .scrolling-div img {
     margin: 0 20px;
-  }
+  } */
 
   @keyframes scroll {
     from {
@@ -41,7 +42,12 @@
     // Initialize the images array for this section
     const imagesArray = [];
     const imagesWidths = [];
-    let tempHight = '';
+
+    // Set slider image height
+    const imageHeight = 100;
+
+    // Set image gap
+    const imageGap = 20;
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
@@ -54,12 +60,6 @@
     console.log('image widths:', imagesWidths);
 
     console.log('imagesArray count:', imagesArray.length);
-
-    // Set image gap
-    const imageGap = 20;
-
-    // Set slider image height
-    const imageHeight = 100;
 
     const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
     console.log({imageWidth});
@@ -74,22 +74,6 @@
     if(actualNumberOfDivsNeeded == 0) {
       actualNumberOfDivsNeeded = 1;
     }
-
-    // const addImages = () => {
-    
-    //   for (let i = 0; i < numberOfImagesNeeded; i++) {
-    //     const imgIndex = i % imagesArray.length; // Wrap around using modulo
-    //     const imageUrl = imagesArray[imgIndex]; // Get the image URL
-    //     const imgElement = document.createElement('img');
-    //     imgElement.src = imageUrl;
-    //     imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
-    //     scrollingDiv.appendChild(imgElement);
-    //   }
-
-    //   const clone = scrollingDiv.cloneNode(true);
-    //   parentDiv.appendChild(clone);
-
-    // }
 
     function addImages() {
       console.log('addImages ran');
@@ -110,9 +94,6 @@
     
     // Initial call to add images
      addImages();
-
-    console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
-
 
   });
 </script>
