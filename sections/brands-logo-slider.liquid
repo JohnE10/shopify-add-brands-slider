@@ -45,6 +45,7 @@
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
+      console.log("{{ block.settings.image | image_url: height: 100 }}")
     {% endfor %}
 
     console.log('imagesArray count:', imagesArray.length);
