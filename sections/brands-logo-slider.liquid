@@ -45,19 +45,20 @@
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
-      // console.log("{{ block.settings.image | image_url: height: 100 }}");
+      console.log({{ block.settings.image.aspect_ratio }});
+      tempHeight = 100;
+      imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
     console.log('image aspect ration:', "{{ section.blocks[0].settings.image.aspect_ratio }}");
+    console.log('image widths:', imagesWidths);
 
     console.log('imagesArray count:', imagesArray.length);
 
     // Set image gap
     const imageGap = 20;
-    // parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
 
     // Set slider image height
-    // const imageHeight = '{{ section.settings.image_height }}';
     const imageHeight = 100;
 
     // const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
