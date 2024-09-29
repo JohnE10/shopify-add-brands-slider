@@ -22,12 +22,11 @@
     from {
       transform: translateX(0);
     }
-
     to {
       transform: translateX(-100%);
-
     }
   }
+
 </style>
 
 <div class="parent">
@@ -35,57 +34,68 @@
 </div>
 
 <script>
-  // Sample array of image URLs
-  const imagesArray = [];
-</script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const parentDiv = document.querySelector('.parent');
+    const scrollingDiv = document.querySelector('.scrolling-div');
 
-{% for block in section.blocks %}
-  <script>
-    // Get the image URL from Liquid and push it to the JavaScript array
-    imagesArray.push("{{ block.settings.image | image_url: width: 150 }}");
-  </script>
-{% endfor %}
+    // Initialize the images array for this section
+    const imagesArray = [];
+    const imagesWidths = [];
+    let tempHight = '';
 
-<script>
-  
-  const imageWidth = 150;
-  
-  const numberOfImages = imagesArray.length;
-  
-  const scrollingDiv = document.querySelector('.scrolling-div');
-  const parentDiv = document.querySelector('.parent');
-  
-  // slider function
-  function runSlider() {
-  
-    const screenWidth = screen.width;
-    const totalWidth = (imageWidth) * numberOfImages;
-  
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
-  
-    addImages();
-  
-    // Function to add images to the scrolling div
-    function addImages() {
-      console.log('addImages ran');
-      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
-      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
-        imagesArray.forEach((imageUrl, index) => {
-          const imgElement = document.createElement('img');
-          imgElement.src = imageUrl;
-          imgElement.alt = `Image ${index + 1}`;
-  
-          scrollingDiv.appendChild(imgElement);
-        });
+    {% for block in section.blocks %}
+      imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
+    {% endfor %}
+
+    console.log('imagesArray count:', imagesArray.length);
+
+    // Set image gap
+    const imageGap = 20;
+    // parentDiv.style.setProperty('--image-gap', `${imageGap}px`);
+
+    // Set slider image height
+    // const imageHeight = '{{ section.settings.image_height }}';
+    const imageHeight = 100;
+
+    // const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
+    // console.log({imageWidth});
+    // console.log({imageGap});
+    // const numberOfImages = imagesArray.length;
+    // const screenWidth = window.innerWidth;
+    // console.log({screenWidth});
+    // // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    // const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
+    // console.log({totalWidth});
+    // const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
+    // let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
+    // if(numberOfImagesNeeded % 2 != 0) {
+    //   numberOfImagesNeeded++;
+    // }
+    // console.log({numberOfImagesNeeded});
+
+    const addImages = () => {
+    
+      for (let i = 0; i < numberOfImagesNeeded; i++) {
+        const imgIndex = i % imagesArray.length; // Wrap around using modulo
+        const imageUrl = imagesArray[imgIndex]; // Get the image URL
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl;
+        imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
+        scrollingDiv.appendChild(imgElement);
       }
-      // duplicate scrolling divs
+
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
+
     }
-  }
-  
-  // Initial call to set the viewport width on page load
-  runSlider();
+
+    // Initial call to add images
+    //  addImages();
+
+    console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
+
+
+  });
 </script>
 
 {% schema %}
