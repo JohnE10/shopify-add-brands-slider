@@ -50,12 +50,12 @@
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
-      console.log({{ block.settings.image.aspect_ratio }});
       tempHeight = 100;
       imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
     console.log('image aspect ration:', "{{ section.blocks[0].settings.image.aspect_ratio }}");
+    console.log('image widths:', imagesWidths);
     console.log('imagesArray count:', imagesArray.length);
 
     const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
