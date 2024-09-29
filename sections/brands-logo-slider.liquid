@@ -58,6 +58,7 @@
     console.log('image widths:', imagesWidths);
     console.log('imagesArray count:', imagesArray.length);
 
+    // compute size of divs
     const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
     console.log({imageWidth});
     console.log({imageGap});
@@ -69,6 +70,7 @@
 
     let actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
 
+    // create the slider
     function addImages() {
       console.log('addImages ran');
       console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
