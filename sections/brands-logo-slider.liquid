@@ -45,8 +45,10 @@
 
     {% for block in section.blocks %}
       imagesArray.push("{{ block.settings.image | image_url: height: 100 }}");
-      console.log("{{ block.settings.image | image_url: height: 100 }}")
+      // console.log("{{ block.settings.image | image_url: height: 100 }}");
     {% endfor %}
+
+    console.log('image aspect ration:', "{{ section.blocks[0].settings.image.aspect_ratio }}");
 
     console.log('imagesArray count:', imagesArray.length);
 
