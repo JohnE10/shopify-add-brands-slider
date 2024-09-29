@@ -61,21 +61,21 @@
     // Set slider image height
     const imageHeight = 100;
 
-    // const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
-    // console.log({imageWidth});
-    // console.log({imageGap});
-    // const numberOfImages = imagesArray.length;
-    // const screenWidth = window.innerWidth;
-    // console.log({screenWidth});
-    // // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
-    // const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
-    // console.log({totalWidth});
-    // const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
-    // let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
-    // if(numberOfImagesNeeded % 2 != 0) {
-    //   numberOfImagesNeeded++;
-    // }
-    // console.log({numberOfImagesNeeded});
+    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
+    console.log({imageWidth});
+    console.log({imageGap});
+    const numberOfImages = imagesArray.length;
+    const screenWidth = window.innerWidth;
+    console.log({screenWidth});
+    // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
+    console.log({totalWidth});
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
+    let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
+    if(numberOfImagesNeeded % 2 != 0) {
+      numberOfImagesNeeded++;
+    }
+    console.log({numberOfImagesNeeded});
 
     const addImages = () => {
     
