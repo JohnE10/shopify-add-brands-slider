@@ -67,32 +67,43 @@
     const numberOfImages = imagesArray.length;
     const screenWidth = window.innerWidth;
     console.log({screenWidth});
-    // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
     const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
     console.log({totalWidth});
     const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
-    let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
-    if(numberOfImagesNeeded % 2 != 0) {
-      numberOfImagesNeeded++;
-    }
-    console.log({numberOfImagesNeeded});
 
-    const addImages = () => {
+    // const addImages = () => {
     
-      for (let i = 0; i < numberOfImagesNeeded; i++) {
-        const imgIndex = i % imagesArray.length; // Wrap around using modulo
-        const imageUrl = imagesArray[imgIndex]; // Get the image URL
-        const imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
-        imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
-        scrollingDiv.appendChild(imgElement);
-      }
+    //   for (let i = 0; i < numberOfImagesNeeded; i++) {
+    //     const imgIndex = i % imagesArray.length; // Wrap around using modulo
+    //     const imageUrl = imagesArray[imgIndex]; // Get the image URL
+    //     const imgElement = document.createElement('img');
+    //     imgElement.src = imageUrl;
+    //     imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
+    //     scrollingDiv.appendChild(imgElement);
+    //   }
 
+    //   const clone = scrollingDiv.cloneNode(true);
+    //   parentDiv.appendChild(clone);
+
+    // }
+
+    function addImages() {
+      console.log('addImages ran');
+      console.log('actual number of divs needed:', actualNumberOfDivsNeeded);
+      for (i = 0; i < actualNumberOfDivsNeeded; i++) {
+        imagesArray.forEach((imageUrl, index) => {
+          const imgElement = document.createElement('img');
+          imgElement.src = imageUrl;
+          imgElement.alt = `Image ${index + 1}`;
+  
+          scrollingDiv.appendChild(imgElement);
+        });
+      }
+      // duplicate scrolling divs
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
-
     }
-
+    
     // Initial call to add images
      addImages();
 
