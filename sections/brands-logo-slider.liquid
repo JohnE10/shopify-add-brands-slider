@@ -15,7 +15,6 @@
     display: flex;
     /* align-items: center; */
     animation: var(--scroll-animation);
-    /* animation: none; Initially no animation; */
   }
 
   .parent.pause-on-hover:hover .scrolling-div {
@@ -69,8 +68,6 @@
       imagesWidths.push(tempHeight *  {{ block.settings.image.aspect_ratio }});
     {% endfor %}
 
-    console.log('imagesArray count:', imagesArray.length);
-
     // Set section-specific CSS variables
     const speed = {{ section.settings.speed }};
     const isReverse = {{ section.settings.reverse }};
@@ -98,42 +95,32 @@
       parentDiv.classList.add('pause-on-hover');
     }
 
-    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length;
+    const imageWidth = imagesWidths.reduce((sum, current) => sum + current, 0) / imagesWidths.length / 2;
     console.log({imageWidth});
-    console.log({imageGap});
     const numberOfImages = imagesArray.length;
     const screenWidth = window.innerWidth;
-    console.log({screenWidth});
-    // const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
-    const totalWidth = (imageWidth + parseInt(imageGap)) * numberOfImages;
-    console.log({totalWidth});
-    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth);
-    let numberOfImagesNeeded = Math.floor(screenWidth / (imageWidth + parseInt(imageGap))) + 1;
-    if(numberOfImagesNeeded % 2 != 0) {
-      numberOfImagesNeeded++;
-    }
-    console.log({numberOfImagesNeeded});
+    const totalWidth = (imageWidth + 2 * parseInt(imageGap)) * numberOfImages;
+    const actualNumberOfDivsNeeded = Math.floor(screenWidth / totalWidth) + 1;
 
-    const addImages = () => {
-    
-      for (let i = 0; i < numberOfImagesNeeded; i++) {
-        const imgIndex = i % imagesArray.length; // Wrap around using modulo
-        const imageUrl = imagesArray[imgIndex]; // Get the image URL
-        const imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
-        imgElement.alt = `Image ${imgIndex + 1}`; // Use imgIndex for the alt text
-        scrollingDiv.appendChild(imgElement);
+    function addImages() {
+      for (let i = 0; i < actualNumberOfDivsNeeded; i++) {
+        imagesArray.forEach((imageUrl, index) => {
+          const imgElement = document.createElement('img');
+          imgElement.src = imageUrl;
+          imgElement.alt = `Image ${index + 1}`;
+          scrollingDiv.appendChild(imgElement);
+        });
       }
-
+      // Duplicate scrolling div
       const clone = scrollingDiv.cloneNode(true);
       parentDiv.appendChild(clone);
 
     }
 
     // Initial call to add images
-     addImages();
+    addImages();
 
-    console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
+     console.log('image count:', document.querySelectorAll('.scrolling-div-{{ section.id }} img').length);
 
 
   });
@@ -141,7 +128,7 @@
 
 {% schema %}
 {
-  "name": "Brands Logo Slider",
+  "name": "Brand Logo Slider",
   "settings": [
     {
       "type": "color",
@@ -222,7 +209,7 @@
   ],
   "presets": [
     {
-      "name": "Brands Logo Slider",
+      "name": "Brand Logo Slider",
       "category": "Custom"
     }
   ]
