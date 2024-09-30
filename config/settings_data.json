@@ -106,7 +106,7 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "",
-    "brand_description": "<p><\/p>",
+    "brand_description": "<p></p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -145,31 +145,31 @@
     ],
     "blocks": {
       "1707384194052384774": {
-        "type": "shopify:\/\/apps\/defer-apps\/blocks\/defer-apps\/cc5be7be-4441-4b65-a05a-8d09ddcca1f4",
+        "type": "shopify://apps/defer-apps/blocks/defer-apps/cc5be7be-4441-4b65-a05a-8d09ddcca1f4",
         "disabled": false,
         "settings": {
         }
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
         }
       },
       "16385875669176271745": {
-        "type": "shopify:\/\/apps\/geolocation-currency-converter\/blocks\/app-embed\/706a7c42-6b86-486e-9103-0b23903e31fa",
+        "type": "shopify://apps/geolocation-currency-converter/blocks/app-embed/706a7c42-6b86-486e-9103-0b23903e31fa",
         "disabled": true,
         "settings": {
         }
       },
       "15599951759576395258": {
-        "type": "shopify:\/\/apps\/mida-heatmap-record-replay\/blocks\/mida_recorder\/e4c350c5-eabf-426d-8014-47ef50412bd0",
+        "type": "shopify://apps/mida-heatmap-record-replay/blocks/mida_recorder/e4c350c5-eabf-426d-8014-47ef50412bd0",
         "disabled": true,
         "settings": {
         }
       },
       "12973772748516043749": {
-        "type": "shopify:\/\/apps\/bitespeed-whatsapp-marketing\/blocks\/app-embed\/9efdb9ca-2d01-4a12-b1ac-02679fe0f6fc",
+        "type": "shopify://apps/bitespeed-whatsapp-marketing/blocks/app-embed/9efdb9ca-2d01-4a12-b1ac-02679fe0f6fc",
         "disabled": true,
         "settings": {
         }
@@ -389,7 +389,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
