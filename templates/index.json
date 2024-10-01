@@ -85,7 +85,7 @@
         "gap": 20,
         "speed": 30,
         "pause_on_hover": true,
-        "reverse": false
+        "reverse": true
       }
     },
     "featured_collection": {
