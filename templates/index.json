@@ -84,8 +84,8 @@
         "image_height": 300,
         "gap": 100,
         "speed": 5,
-        "pause_on_hover": true,
-        "reverse": false
+        "pause_on_hover": false,
+        "reverse": true
       }
     },
     "featured_collection": {
