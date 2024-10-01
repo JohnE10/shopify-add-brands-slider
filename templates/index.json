@@ -83,9 +83,9 @@
         "parent_height": 150,
         "image_height": 100,
         "gap": 20,
-        "speed": 200,
-        "pause_on_hover": false,
-        "reverse": true
+        "speed": 30,
+        "pause_on_hover": true,
+        "reverse": false
       }
     },
     "featured_collection": {
