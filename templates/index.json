@@ -80,10 +80,10 @@
       ],
       "settings": {
         "background": "rgba(0,0,0,0)",
-        "parent_height": 500,
-        "image_height": 300,
-        "gap": 100,
-        "speed": 5,
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 200,
         "pause_on_hover": false,
         "reverse": true
       }
