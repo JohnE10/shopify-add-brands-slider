@@ -79,7 +79,7 @@
         "logo_FgiCPY"
       ],
       "settings": {
-        "background": "#334fb4",
+        "background": "rgba(0,0,0,0)",
         "parent_height": 500,
         "image_height": 300,
         "gap": 100,
