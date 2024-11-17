@@ -773,6 +773,103 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} get metafields after user interaction {% endcomment %}
+<script>
+
+    let fetchMetafieldsChecker = false;
+
+    // Function to fetch shop metafields from Shopify
+    const fetchMetafields = async () => {
+        console.log('running fetchMetafields...');
+
+        if (fetchMetafieldsChecker) {
+            return;
+        }
+
+        fetchMetafieldsChecker = true;
+
+        // load judge.me reviews
+        try {
+
+            // fetching metafields using liquid
+            const metafieldsSettingsKey = {{ metafieldsSettingsKey | json }};
+
+            // Iterate over each key in the metafieldsSettingsKey object
+            Object.keys(metafieldsSettingsKey).forEach(key => {
+                // Parse the value as HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = metafieldsSettingsKey[key];
+
+                // Loop through each child element in the parsed HTML
+                Array.from(tempDiv.children).forEach(element => {
+                    if (element.tagName == 'STYLE' || element.tagName == 'SCRIPT') {
+
+                        // Append <style> or <script> elements to the document head
+                        document.head.appendChild(element);
+                    }
+                });
+            });
+
+            // Loader script logic, executes after metafield processing
+            const fetchLoaderJs = async () => {
+                const fetchLoaderJsResponse = await fetch('https://cdn.judge.me/loader.js');
+                return await fetchLoaderJsResponse.text();
+            };
+
+            window.jdgmSettings = {
+                widget_version: "3.0", 
+                widget_load_with_code_splitting: true, 
+            };
+
+
+            const loaderScriptContent = await fetchLoaderJs();
+
+            const script = document.createElement('script');
+            script.textContent = loaderScriptContent;
+            script.setAttribute('data-cfasync', 'false');
+            script.classList.add('jdgm-script');
+            document.head.appendChild(script);
+
+
+        } catch (error) {
+            console.error('Error fetching metafields:', error);
+            // throw error;
+        }
+    };
+
+    if(Shopify.designMode) {
+        fetchMetafields();
+    }
+
+    // Add event listener for user interaction to trigger fetchMetafields
+    window.addEventListener("load", () => {
+        window.addEventListener('click', fetchMetafields, { once: true });
+        window.addEventListener('scroll', fetchMetafields, { once: true });
+        window.addEventListener('keydown', fetchMetafields, { once: true });
+        window.addEventListener('mousemove', fetchMetafields, { once: true });
+    });
+
+</script> 
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
