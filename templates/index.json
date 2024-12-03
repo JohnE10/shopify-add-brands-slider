@@ -155,11 +155,24 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "brands_logo_slider_pro_yVxRQj": {
+      "type": "brands-logo-slider-pro",
+      "settings": {
+        "background": "transparent",
+        "parent_height": 150,
+        "image_height": 100,
+        "gap": 20,
+        "speed": 30,
+        "pause_on_hover": true,
+        "reverse": false
+      }
     }
   },
   "order": [
     "image_banner",
     "brands_logo_slider_pro_YVajff",
-    "featured_collection"
+    "featured_collection",
+    "brands_logo_slider_pro_yVxRQj"
   ]
 }
