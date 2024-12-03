@@ -1,4 +1,9 @@
 <style>
+  .logo-slider-container {
+    overflow-x: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+  }
   .parent {
     display: flex;
     background-color: transparent;
@@ -28,9 +33,12 @@
   }
 </style>
 
-<div class="parent">
-  <div class="scrolling-div"></div>
+<div class="logo-slider-container">
+  <div class="parent">
+    <div class="scrolling-div"></div>
+  </div>  
 </div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
