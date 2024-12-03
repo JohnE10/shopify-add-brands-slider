@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -71,12 +71,52 @@
             "image": "shopify://shop_images/disney-logo_300x200_69641031-fd82-4936-a068-0fede4b73972.png",
             "alt_text": ""
           }
+        },
+        "logo_bVKEXD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/playstation-logo_300x200_ea0d32e2-971a-42c0-804a-6064162090f0.png",
+            "alt_text": ""
+          }
+        },
+        "logo_G83kEx": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/samsung-logo_300x200_93d019da-b6bb-4d18-b138-84b13b6a58f9.png",
+            "alt_text": ""
+          }
+        },
+        "logo_9g8K8d": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/adobe-logo_300x200_45a99177-8ab2-4315-8f03-0800895cd509.png",
+            "alt_text": ""
+          }
+        },
+        "logo_Ktkijh": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/google-logo_300x200_64bef50d-ae5e-406e-bdd6-aaab3dfec8fb.png",
+            "alt_text": ""
+          }
+        },
+        "logo_XTiwnm": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/yahoomail-logo_300x200_12598f39-22ae-4728-98bc-ee8c4b6a3cb5.png",
+            "alt_text": ""
+          }
         }
       },
       "block_order": [
         "logo_8xNVn6",
         "logo_cLwFxM",
-        "logo_FgiCPY"
+        "logo_FgiCPY",
+        "logo_bVKEXD",
+        "logo_G83kEx",
+        "logo_9g8K8d",
+        "logo_Ktkijh",
+        "logo_XTiwnm"
       ],
       "settings": {
         "background": "rgba(0,0,0,0)",
