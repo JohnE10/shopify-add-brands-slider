@@ -171,6 +171,11 @@
         "type": "shopify://apps/notify-me/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
         "settings": {}
+      },
+      "12567930961042331333": {
+        "type": "shopify://apps/instock-notify/blocks/instock-notify/2b1f94c9-fe2d-4055-b34d-4fd326dd2c1e",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
