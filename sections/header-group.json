@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -29,6 +38,15 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "recommended_products_slider_recommended_products_slider_JPchET": {
+          "type": "shopify://apps/recommended-products-slider/blocks/recommended-products-slider/81b62dcc-15d3-402f-bce7-fd6067617f56",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "recommended_products_slider_recommended_products_slider_JPchET"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
