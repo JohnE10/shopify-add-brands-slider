@@ -179,7 +179,7 @@
       },
       "830887136832533871": {
         "type": "shopify://apps/recommended-products-slider/blocks/custom-cart/81b62dcc-15d3-402f-bce7-fd6067617f56",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     },
