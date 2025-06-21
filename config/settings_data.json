@@ -176,6 +176,11 @@
         "type": "shopify://apps/instock-notify/blocks/instock-notify/2b1f94c9-fe2d-4055-b34d-4fd326dd2c1e",
         "disabled": false,
         "settings": {}
+      },
+      "830887136832533871": {
+        "type": "shopify://apps/recommended-products-slider/blocks/custom-cart/81b62dcc-15d3-402f-bce7-fd6067617f56",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
